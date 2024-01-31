@@ -1,5 +1,7 @@
 {
   "index": "Introduction",
+  "another": "Education",
+  "portfolio": "Portfolio",
   "resume": {
     "type": "page",
     "title": "Resume"
@@ -9,7 +11,5 @@
     "title": "LinkedIn ↗",
     "href": "https://www.linkedin.com/in/hudsoncsmith/",
     "newWindow": true
-  },
-  "another": "Education",
-  "folder": "Portfolio"
+  }
 }
