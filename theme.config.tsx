@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
   },
 }
 
-export default function Document() {
+export default {
 
   logo: (
     <>
@@ -29,11 +29,5 @@ export default function Document() {
       </span>
     </>
   )
-
-  const meta = {
-    title: 'Hudson C. Smith',
-    description: 'Mechanical Engineer | Physicist | Creative Problem Solver',
-    image: "/images/IMG_0282.jpeg",
-  }
 
 }
