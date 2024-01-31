@@ -22,11 +22,8 @@ export default {
       <img
         src="/images/IMG_8837.jpg" // Replace with the actual path to your image
         alt="My Cool Project Logo"
-        style={{ width: '150px', height: '25px', marginRight: '8px' }}
+        style={{ width: '300px', height: '50px', marginRight: '8px' }}
       />
-      <span style={{ marginLeft: '.4em', fontWeight: 800 }}>
-        My Cool Project
-      </span>
     </>
   )
 
