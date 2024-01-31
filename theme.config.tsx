@@ -15,15 +15,22 @@ const config: DocsThemeConfig = {
   },
 }
 
-export default {
+export default function Document() {
+
   logo: (
     <>
       <img
-        src="/images/IMG_0282.jpeg" // Replace with the actual path to your image
+        src="/images/IMG_8837.jpeg" // Replace with the actual path to your image
         alt="My Cool Project Logo"
-        style={{ width: '24px', height: '24px', marginRight: '8px' }}
+        style={{ width: '300px', height: '50px', marginRight: '8px' }}
       />
-      <span style={{ fontWeight: 800 }}>My Cool Project</span>
     </>
   )
+
+  const meta = {
+    title: 'Hudson C. Smith',
+    description: 'Mechanical Engineer | Physicist | Creative Problem Solver',
+    image: "/images/IMG_0282.jpeg",
+  }
+
 }
