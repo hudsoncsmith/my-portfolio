@@ -21,8 +21,8 @@ export default {
     <>
       <img
         src="/images/IMG_8837.png" // Replace with the actual path to your image
-        alt="My Cool Project Logo"
-        style={{ width: '300px', height: '50px', marginRight: '8px' }}
+        alt="Hudson C. Smith"
+        style={{ width: '450px', height: '75px', marginRight: '8px' }}
       />
     </>
   )
