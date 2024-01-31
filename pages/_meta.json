@@ -6,7 +6,8 @@
 
   "resume": {
     "title": "Resume",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "contact": {
     "title": "LinkedIn ↗",
