@@ -2,7 +2,7 @@
   "index": "Introduction",
   "resume": {
     "type": "page",
-    "title": "resume"
+    "title": "Resume"
   },
   "contact": {
     "type": "page",
@@ -10,5 +10,6 @@
     "href": "https://www.linkedin.com/in/hudsoncsmith/",
     "newWindow": true
   },
-  "another": "Education"
+  "another": "Education",
+  "folder": "Portfolio"
 }
