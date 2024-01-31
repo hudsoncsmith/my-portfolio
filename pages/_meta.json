@@ -1,14 +1,14 @@
 {
   "index": "Introduction",
   "another": "Education",
-  "advanced": "Advanced (A Folder)",
-
+  "advanced": "Portfolio",
 
   "resume": {
     "title": "Resume",
     "type": "page",
     "display": "hidden"
   },
+
   "contact": {
     "title": "LinkedIn ↗",
     "type": "page",
