@@ -32,7 +32,7 @@ export default {
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       {/* Add the following line to include the favicon */}
-      <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       {/* Other meta tags, styles, and scripts can go here */}
       <title>Your Website Title</title>
     </>
