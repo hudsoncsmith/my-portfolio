@@ -4,9 +4,9 @@
   "advanced": "Portfolio",
 
   "resume": {
+    "display": "hidden",
     "title": "Resume",
-    "type": "page",
-    "display": "hidden"
+    "type": "page"
   },
 
   "contact": {
