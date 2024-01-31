@@ -25,14 +25,16 @@ export default {
         style={{ width: '450px', height: '75px', marginRight: '8px' }}
       />
     </>
-  )
+  ),
 
-  banner: {
-    key: '2.0-release',
-    text: (
-      <a href="https://nextra.site" target="_blank">
-        🎉 Nextra 2.0 is released. Read more →
-      </a>
-    )
-  }
+  head: (
+    <>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {/* Add the following line to include the favicon */}
+      <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon" />
+      {/* Other meta tags, styles, and scripts can go here */}
+      <title>Your Website Title</title>
+    </>
+  )
 }
