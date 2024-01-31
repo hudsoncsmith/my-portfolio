@@ -3,4 +3,10 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
+module.exports = {
+  compiler: {
+    styledComponents: true,
+  },
+}
+
 module.exports = withNextra()
