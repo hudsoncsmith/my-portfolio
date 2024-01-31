@@ -1,16 +1,16 @@
 {
-  "index": "Introduction",
+  "home": "Introduction",
   "another": "Education",
   "advanced": "Portfolio",
 
   "resume": {
-    "title": "resume",
-    "type": "page"
+    "type": "page",
+    "title": "resume"
   },
 
   "contact": {
-    "title": "LinkedIn ↗",
     "type": "page",
+    "title": "LinkedIn ↗",
     "href": "https://www.linkedin.com/in/hudsoncsmith/",
     "newWindow": true
   }
