@@ -1,7 +1,8 @@
 {
-  "index": "Introduction",
+  "intro": "Introduction",
   "another": "Education",
   "advanced": "Advanced (A Folder)",
+
 
   "resume": {
     "title": "Resume",
