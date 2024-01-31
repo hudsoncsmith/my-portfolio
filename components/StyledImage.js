@@ -18,10 +18,12 @@ const TextContainer = styled.div`
 
 const StyledImage = styled.img`
   width: 200px; /* Adjust the width as needed */
-  height: 200px; /* Adjust the height as needed */
-  border-radius: 10%; /* Make the image circular */
+  height: 300px; /* Adjust the height as needed */
+  border-radius: 10%; /* Make the image Rectangular */
   object-fit: cover; /* Ensure the image covers the circular area */
   margin-left: auto; /* Move the image to the right */
+  margin-right: 10px; /* Add a right margin of 10px (adjust as needed) */
+
 `;
 
 export { Container, StyledImage, TextContainer };
