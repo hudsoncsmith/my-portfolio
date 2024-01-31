@@ -2,8 +2,8 @@
   "index": "Introduction",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
+  "Resume": {
+    "title": "Resume",
     "type": "page"
   },
   "contact": {
