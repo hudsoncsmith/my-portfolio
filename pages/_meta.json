@@ -2,7 +2,7 @@
   "index": "Introduction",
   "another": "Education",
   "advanced": "Advanced (A Folder)",
-  "Resume": {
+  "resume": {
     "title": "Resume",
     "type": "page"
   },
