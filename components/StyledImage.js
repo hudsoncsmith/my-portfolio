@@ -17,8 +17,8 @@ const TextContainer = styled.div`
 `;
 
 const StyledImage = styled.img`
-  width: 100px; /* Adjust the width as needed */
-  height: 100px; /* Adjust the height as needed */
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
   border-radius: 50%; /* Make the image circular */
   object-fit: cover; /* Ensure the image covers the circular area */
   margin-left: auto; /* Move the image to the right */
