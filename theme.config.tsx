@@ -22,7 +22,7 @@ export default function Document() {
       <img
         src="/images/IMG_8837.jpeg" // Replace with the actual path to your image
         alt="My Cool Project Logo"
-        style={{ width: '300px', height: '50px', marginRight: '8px' }}
+        style={{ height: '50px', marginRight: '8px' }}
       />
     </>
   )
