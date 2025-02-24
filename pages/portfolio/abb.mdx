@@ -1,1 +1,33 @@
-# ABB Robotics
+# Thesis Summary: Estimation of Stopping Behavior for Industrial Robots
+
+This thesis represents a collaborative effort between **ABB Corporate Research in Ladenburg**, **Virginia Tech**, and the **Institute for Mechatronic Systems at TU Darmstadt**. The collaboration involved research into improving the safety of industrial robots, specifically focusing on the estimation of stopping behavior using machine learning techniques.
+
+### Abstract
+
+The study presents a procedure for estimating the stopping behavior of industrial robots using a trained neural network. The trained network is presented as a single channel in a redundant architecture for safety control applications, with future integration potential for an analytical model of robot stopping behavior.
+
+The study derives basic physical relations for simplified articulated manipulators and motivates the choice of quantities to predict robot stopping behavior. It uses these to train and test a network that predicts stopping distances and times. The robot stopping behavior is evaluated according to ISO 10218-1, ISO/TS 15066, and ISO 13849-1 standards, defining safety-related stopping distances and times. Previous research in robot stopping behavior and the use of machine learning in industrial robotics, particularly in predicting forward and inverse kinematics, is discussed.
+
+A state-driven data collection program was developed to conduct controlled stop experiments. This program collected data for both simulated and real robot systems. Special attention was given to identifying meaningful stopping times, including separating pre-deceleration and post-deceleration phases. The study defines robot stopping in a safety context, focusing on motion residuals over short distances (less than 1mm) and low velocities (less than 1mm/s) as irrelevant for safety.
+
+The research developed a dual-network structure to predict stopping distances and times for the first three joints of a manipulator without considering payloads. The networks were validated for their ability to interpolate and extrapolate predictions for different initial conditions not included in the training and testing data. A method for calculating prediction errors was applied to assess both interpolation and extrapolation performance.
+
+The network was highly successful at interpolation, showing comparable or nominally higher errors for validation data compared to training and testing data. However, significant prediction errors were observed in extrapolation, particularly for new initial velocity and positional conditions.
+
+### Future Work
+
+Future directions include enhancing predictions for stopping behavior with payloads and tooling, applications to collaborative robotics, the development of analytical models of stopping behavior, incorporating additional stopping functions, and using explainable AI methods and physics-informed networks.
+
+### Keywords
+
+Industrial Robotics, Robot Safety, Physics-Informed Machine Learning, Stopping Behavior, Robot Stopping Distance, Robot Stopping Time, Speed and Separation Monitoring, Power and Force Limiting, Functional Safety, Safety Controls, Protective Devices
+
+### Publication
+
+For more detailed information, you can access the thesis at the following persistent link:  
+[Thesis on Virginia Tech Digital Library](https://hdl.handle.net/10919/117240)
+
+---
+
+You can also find relevant documents on VDI Mechatronik regarding my research.  
+[VDI Mechatronik Document](link-to-vdi-document)

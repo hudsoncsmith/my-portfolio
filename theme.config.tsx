@@ -34,7 +34,7 @@ export default {
       {/* Add the following line to include the favicon */}
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       {/* Other meta tags, styles, and scripts can go here */}
-      <title>Your Website Title</title>
+      <title>Hudson C. Smith</title>
     </>
   )
 }

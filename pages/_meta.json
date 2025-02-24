@@ -1,6 +1,7 @@
 {
-  "index": "Introduction",
+  "index": "Home",
   "another": "Education",
+  "reading_list": "Reading List",
   "portfolio": "Portfolio",
   "resume": {
     "type": "page",

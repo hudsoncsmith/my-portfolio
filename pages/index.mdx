@@ -1,13 +1,22 @@
-# Introduction
+---
+title: "Home"
+---
 
-import { Container, StyledImage, TextContainer } from '../components/StyledImage';
- 
-<Container>
-  <TextContainer>
-    <h2>Hi! I'm Hudson.</h2>
-    <p> I recently completed a dual-degree Master of Science in Mechanical Engineering at Technische Universität Darmstadt and Virginia Tech, where I received the Deutschlandstipendium Scholarship and a Teaching Assistantship in Physics. My master thesis, entitled Safe Stopping Distances and Times for Industrial Robotics, was completed at ABB Corporate Research and will be featured in the upcoming mechatronics conference VDI Mechatroniktagung. I have a bachelor's degree in Physics and German studies from Hamilton College, where I was awarded the Nottingham Leadership Scholarship and published my bachelor's thesis on organic photovoltaic technology. I have also gained valuable experience as a working student at ABB and a mechanical engineering intern </p>
-  </TextContainer>
-  <StyledImage src="/images/CoverImage.jpeg" alt="Description of the image" />
-</Container>
+import { HeroSection, ContentWrapper, ImageWrapper, StyledImage } from '../components/StyledComponents';
 
+<HeroSection>
+  <ContentWrapper>
+    ## Hi! I'm Hudson.
+    <ImageWrapper>
+    <StyledImage src="/images/CoverImageTwo.jpg" alt="Hudson's profile image" />
+    </ImageWrapper>
+    In my current role as a systems and applications engineer at GrayMatter Robotics, I configure client-specific
+    activations for AI-powered robots to perform dirty and dangerous jobs. I am passionate about the future of AI
+    in industrial and collaborative robotics and its capacity to empower people.
 
+    I hold a dual-degree  M.Sc. in Mechanical and Process Engineering / M.S. in Mechanical Engineering from Technische Universität Darmstadt and
+    Virginia Tech. My master’s thesis, "Safe Stopping Distances and Times for Industrial Robotics," was featured
+    at the German mechatronics conference VDI Mechatroniktagung.
+  </ContentWrapper>
+
+</HeroSection>
