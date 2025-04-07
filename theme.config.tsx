@@ -54,5 +54,24 @@ export default {
   // Customize the footer
   footer: {
     text: `© ${new Date().getFullYear()} Hudson C. Smith`
+  },
+
+  // Remove feedback link
+  feedback: {
+    content: null
+  },
+
+  // Remove edit link
+  editLink: {
+    component: null
+  },
+
+  // Remove the "Last updated on" text
+  gitTimestamp: null,
+
+  // Ensure sidebar is enabled
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+    toggleButton: true
   }
 }
