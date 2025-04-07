@@ -10,6 +10,178 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Top Logo Bar */
+.top-logo-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.main-logo {
+  height: auto;
+  width: 450px;
+  max-width: 100%;
+}
+
+/* Custom Sidebar Styles */
+.custom-sidebar {
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 100px; /* Adjusted to be below the logo bar */
+  left: 0;
+  height: calc(100vh - 100px); /* Adjusted height */
+  width: 250px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.custom-sidebar.closed {
+  transform: translateX(-250px);
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.sidebar-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.sidebar-link:hover {
+  color: #0056b3;
+  background-color: rgba(0, 86, 179, 0.05);
+}
+
+.sidebar-link.active-nav-link {
+  color: #0056b3;
+  font-weight: 600;
+  background-color: rgba(0, 86, 179, 0.1);
+  border-left: 3px solid #0056b3;
+}
+
+.sidebar-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 110px; /* Positioned below the logo bar */
+  left: 1rem;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 5px;
+  transition: left 0.3s ease;
+}
+
+.sidebar-toggle.open {
+  left: 260px;
+}
+
+.sidebar-toggle span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle.closed span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.sidebar-toggle.closed span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar-toggle.closed span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Main content adjustment for sidebar */
+body {
+  padding-left: 250px;
+  padding-top: 100px; /* Add padding for the logo bar */
+  transition: padding-left 0.3s ease;
+}
+
+body.sidebar-collapsed {
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-left: 0;
+  }
+
+  .top-logo-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .main-logo {
+    width: 300px;
+  }
+
+  .custom-sidebar {
+    width: 80%;
+    max-width: 300px;
+    top: 80px; /* Smaller top spacing on mobile */
+    height: calc(100vh - 80px);
+  }
+
+  .sidebar-toggle {
+    top: 90px; /* Adjusted for mobile */
+  }
+
+  .sidebar-toggle.open {
+    left: calc(80% + 10px);
+    max-left: 310px;
+  }
+
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* Hide the small page title on the Education page */
 .nextra-breadcrumb + h1 {
   display: none;
@@ -29,31 +201,35 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   display: none !important;
 }
 
-/* Ensure sidebar is visible and styled */
-.nextra-sidebar-container, .nextra-sidebar {
-  display: block !important;
-  background-color: white;
-  border-right: 1px solid #eaeaea;
+/* Hide dark mode toggle */
+.nx-text-current.nx-p-2, button[aria-label="Toggle Dark Mode"] {
+  display: none !important;
 }
 
-.nextra-menu-desktop {
-  display: flex !important;
+/* Hide default Nextra navbar and any top navigation */
+.nextra-nav-container, .nextra-nav-container-blur, header, .nextra-toc, .nextra-breadcrumb {
+  display: none !important;
 }
 
-.nextra-sidebar-container li a {
-  color: #333 !important;
-  font-weight: 500;
-  transition: color 0.2s ease;
+/* Main content styling */
+.main-content {
+  padding-top: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.nextra-sidebar-container li a:hover {
-  color: #0056b3 !important;
+/* Hide sidebar on desktop since we have our custom navbar */
+.nextra-sidebar-container, .nextra-sidebar, .nextra-menu-desktop {
+  display: none !important;
 }
 
-.nextra-sidebar-container li a.active {
-  color: #0056b3 !important;
-  font-weight: 600;
-  background-color: rgba(0, 86, 179, 0.1);
+/* Adjust content width to be full width */
+.nextra-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .cta-button {

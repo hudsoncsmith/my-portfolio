@@ -73,5 +73,14 @@ export default {
   sidebar: {
     defaultMenuCollapseLevel: 1,
     toggleButton: true
+  },
+
+  // Disable dark mode
+  darkMode: false,
+
+  // Force light theme
+  nextThemes: {
+    defaultTheme: 'light',
+    forcedTheme: 'light'
   }
 }
