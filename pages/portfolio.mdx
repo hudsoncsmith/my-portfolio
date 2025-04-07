@@ -1,3 +1,51 @@
-# Portfolio
+---
+title: "Portfolio"
+---
 
-This is the index page for the portfolio
+import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComponents';
+
+<HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Portfolio</h1>
+
+  <div style={{ lineHeight: '1.8', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
+    <p>Here you'll find a collection of my professional projects and academic work. My experience spans robotics, AI integration, and mechanical engineering with a focus on safety systems.</p>
+
+    <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+      <CTAButton href="/portfolio/abb">
+        View Thesis Project
+      </CTAButton>
+    </div>
+  </div>
+</HeroSection>
+
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3' }}>Featured Projects</h2>
+
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+    <div style={{ border: '1px solid #e0e0e0', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
+      <div style={{ height: '200px', background: 'linear-gradient(135deg, rgba(235,245,255,0.9) 0%, rgba(225,240,255,0.9) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ fontSize: '4rem' }}>🤖</span>
+      </div>
+      <div style={{ padding: '1.5rem' }}>
+        <h3 style={{ color: '#0056b3', marginBottom: '0.5rem' }}>Robotics Safety Research</h3>
+        <p>Developed innovative approaches to robot stopping distance estimation using machine learning techniques.</p>
+        <CTAButton href="/portfolio/abb" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
+          Learn More
+        </CTAButton>
+      </div>
+    </div>
+
+    <div style={{ border: '1px solid #e0e0e0', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
+      <div style={{ height: '200px', background: 'linear-gradient(135deg, rgba(235,245,255,0.9) 0%, rgba(225,240,255,0.9) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ fontSize: '4rem' }}>🧠</span>
+      </div>
+      <div style={{ padding: '1.5rem' }}>
+        <h3 style={{ color: '#0056b3', marginBottom: '0.5rem' }}>AI Integration Projects</h3>
+        <p>Implemented machine learning solutions for industrial applications, focusing on computer vision and predictive maintenance.</p>
+        <CTAButton href="#" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
+          Coming Soon
+        </CTAButton>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,5 +36,23 @@ export default {
       {/* Other meta tags, styles, and scripts can go here */}
       <title>Hudson C. Smith</title>
     </>
-  )
+  ),
+
+  // Disable the search bar
+  search: {
+    component: () => null
+  },
+
+  // Remove GitHub and Discord links
+  project: {
+    link: ''
+  },
+  chat: {
+    link: ''
+  },
+
+  // Customize the footer
+  footer: {
+    text: `© ${new Date().getFullYear()} Hudson C. Smith`
+  }
 }

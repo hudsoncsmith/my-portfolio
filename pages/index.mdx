@@ -2,21 +2,67 @@
 title: "Home"
 ---
 
-import { HeroSection, ContentWrapper, ImageWrapper, StyledImage } from '../components/StyledComponents';
-
-<HeroSection>
-  <ContentWrapper>
+<div className="hero-section">
+  <div className="content-wrapper">
     ## Hi! I'm Hudson.
-    <ImageWrapper>
-    <StyledImage src="/images/CoverImageTwo.jpg" alt="Hudson's profile image" />
-    </ImageWrapper>
-    In my current role as a systems and applications engineer at GrayMatter Robotics, I configure client-specific
-    activations for AI-powered robots to perform dirty and dangerous jobs. I am passionate about the future of AI
-    in industrial and collaborative robotics and its capacity to empower people.
 
-    I hold a dual-degree  M.Sc. in Mechanical and Process Engineering / M.S. in Mechanical Engineering from Technische Universität Darmstadt and
-    Virginia Tech. My master’s thesis, "Safe Stopping Distances and Times for Industrial Robotics," was featured
-    at the German mechatronics conference VDI Mechatroniktagung.
-  </ContentWrapper>
+    <div className="bio-text">
+      In my current role as a systems and applications engineer at GrayMatter Robotics, I configure client-specific
+      activations for AI-powered robots to perform dirty and dangerous jobs. I am passionate about the future of AI
+      in industrial and collaborative robotics and its capacity to empower people.
+    </div>
 
-</HeroSection>
+    <div className="bio-text">
+      I hold a dual-degree M.Sc. in Mechanical and Process Engineering / M.S. in Mechanical Engineering from Technische Universität Darmstadt and
+      Virginia Tech. My master's thesis, "Safe Stopping Distances and Times for Industrial Robotics," was featured
+      at the German mechatronics conference VDI Mechatroniktagung.
+    </div>
+
+    <div className="cta-container">
+      <a href="/portfolio" className="cta-button">View My Work</a>
+      <a href="/resume" className="cta-button resume">Resume</a>
+      <a href="https://www.linkedin.com/in/hudsoncsmith/" className="cta-button linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+
+  <div className="image-wrapper">
+    <img className="styled-image" src="/images/CoverImageTwo.jpg" alt="Hudson's profile image" />
+  </div>
+</div>
+
+<div className="skills-section">
+  <h2 className="gradient-heading">
+    Skills & Expertise
+  </h2>
+
+  <div className="skills-grid">
+    <div className="skill-item">
+      <h3>Robotics</h3>
+      <p>Industrial & Collaborative</p>
+    </div>
+    <div className="skill-item">
+      <h3>AI Integration</h3>
+      <p>Applied Machine Learning</p>
+    </div>
+    <div className="skill-item">
+      <h3>Systems Engineering</h3>
+      <p>Complex System Design</p>
+    </div>
+    <div className="skill-item">
+      <h3>Mechanical Engineering</h3>
+      <p>Design & Analysis</p>
+    </div>
+    <div className="skill-item">
+      <h3>Safety Systems</h3>
+      <p>Risk Assessment</p>
+    </div>
+    <div className="skill-item">
+      <h3>Project Management</h3>
+      <p>Client-Focused Solutions</p>
+    </div>
+  </div>
+</div>
+
+<div style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.8rem', color: '#666' }}>
+  Last updated on February 23, 2025
+</div>

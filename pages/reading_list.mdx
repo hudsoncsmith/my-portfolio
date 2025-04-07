@@ -6,116 +6,123 @@ description: "A curated selection of books spanning nonfiction, fiction, philoso
 import Callout from '../components/Callout';
 import BookList from '../components/Booklist';
 
-# 📚 Reading List
+<div className="hero-section" style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>📚 Reading List</h1>
 
-I am an avid reader and enjoy all forms of print media. I subscribe to *The New York Times* and *The Wall Street Journal*, and I love books across multiple genres—including novels, science fiction, nonfiction, self-help, and philosophy. 
+  <div style={{ fontFamily: 'Georgia, serif', lineHeight: '1.8', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
+    <p>I am an avid reader and enjoy all forms of print media. I subscribe to <em>The New York Times</em> and <em>The Wall Street Journal</em>, and I love books across multiple genres—including novels, science fiction, nonfiction, self-help, and philosophy.</p>
 
-I often share my book recommendations with family, friends, and colleagues. This list includes some of my all-time favorite books alongside some recent reads I've been enjoying.
+    <p>I often share my book recommendations with family, friends, and colleagues. This list includes some of my all-time favorite books alongside some recent reads I've been enjoying.</p>
 
----
+    <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0', gap: '1rem' }}>
+      <a href="https://www.goodreads.com/" className="cta-button" target="_blank" rel="noopener noreferrer">
+        Follow on Goodreads
+      </a>
+      <a href="mailto:share@example.com" className="cta-button resume">
+        Share a Recommendation
+      </a>
+    </div>
+  </div>
+</div>
 
-## 🧠 Nonfiction
-<BookList>
-- *Regenesis: Feeding the World Without Devouring the Planet* — George Monbiot
-- *Guns, Germs and Steel: The fates of Human Societies* - Jared Diamond
-- *Surely You're Joking, Mr. Feynman!* - Richard P. Feynman
-- *Hitching Rides with Buddha* - Will Ferguson
-- *The Chrysanthemum and the Sword* - Ruth Benedict
-- *A Brief History of Time* - Stephen Hawking
-- *Sapiens: A Brief History of Humankind* - Yuval Noah Harari
-- *A Short History of Nearly Everything* - Bill Bryson
-</BookList>
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🧠 Nonfiction & Academic Works</h2>
 
-<Callout>
-*Regensis* highlights the lack of robustness in the current food system and the challenges that monoculture crops and current livestock farming methods could face in the coming years.
-</Callout>
+  <BookList>
+    - *Regenesis: Feeding the World Without Devouring the Planet* — George Monbiot
+    - *Guns, Germs and Steel: The fates of Human Societies* - Jared Diamond
+    - *Surely You're Joking, Mr. Feynman!* - Richard P. Feynman
+    - *Hitching Rides with Buddha* - Will Ferguson
+    - *The Chrysanthemum and the Sword* - Ruth Benedict
+    - *A Brief History of Time* - Stephen Hawking
+    - *Sapiens: A Brief History of Humankind* - Yuval Noah Harari
+    - *A Short History of Nearly Everything* - Bill Bryson
+  </BookList>
 
-## 💪 Personal Development
-<BookList>
-- *Atomic Habits: Tiny Changes, Remarkable Results* - James Clear
-- *Supercommunicators* - Charles Duhigg
-- *How to Win Friends and Influence People* - Dale Carnegie
-- *Man's Search for Meaning* - Viktor Frankl
-- *Inner Excellence* - Jim Murphy
-- *How to Change Your Mind* - Michael Pollan
-- *Thinking, Fast and Slow* - Daniel Kahneman
-</BookList>
+  <Callout>
+    *Regensis* highlights the lack of robustness in the current food system and the challenges that monoculture crops and current livestock farming methods could face in the coming years.
+  </Callout>
 
-<Callout>
-Viktor Frankl's *Man's Search for Meaning* has helped me to contextualize and face some of the most difficult challenges. 
-</Callout>
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>💪 Personal Development</h2>
 
----
+  <BookList>
+    - *Atomic Habits: Tiny Changes, Remarkable Results* - James Clear
+    - *Supercommunicators* - Charles Duhigg
+    - *How to Win Friends and Influence People* - Dale Carnegie
+    - *Man's Search for Meaning* - Viktor Frankl
+    - *Inner Excellence* - Jim Murphy
+    - *How to Change Your Mind* - Michael Pollan
+    - *Thinking, Fast and Slow* - Daniel Kahneman
+  </BookList>
 
-## 🎭 Fiction
-<BookList>
-- *The Underground Railroad* — Colson Whitehead
-- *There, There* — Tommy Orange
-- *Kitchen* - Banana Yoshimoto
-- *My Year of Rest and Relaxation* — Ottessa Moshfegh
-- *If on a Winter's Night a Traveler* - Italo Calvino
-- *On Beauty* - Zadie Smith
-- *A Little Life* - Hanya Yanagihara
-- *Kairos* - Jenny Erpenbeck
-</BookList>
-<Callout>
+  <Callout>
+    Viktor Frankl's *Man's Search for Meaning* has helped me to contextualize and face some of the most difficult challenges.
+  </Callout>
 
-</Callout>
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🎭 Fiction</h2>
 
-## 🍎 Classics
-<BookList>
-- *The Grapes of Wrath* - John Steinbeck
-- *Crime and Punishment* - Fyodor Dostoevsky
-- *Gravity's Rainbow* - Thomas Pynchon
-- *The Sun Also Rises* - Ernest Hemmingway
-- *To Kill a Mockingbird* - Harper Lee
-- *Great Expectations* - Charles Dickens
--  
-</BookList>
-<Callout>
-I find that the protagonist Raskolnikov of *Crime and Punishment* seems to find his way into the modern mainstream news media cycle rather often.
-</Callout>
+  <BookList>
+    - *The Underground Railroad* — Colson Whitehead
+    - *There, There* — Tommy Orange
+    - *Kitchen* - Banana Yoshimoto
+    - *My Year of Rest and Relaxation* — Ottessa Moshfegh
+    - *If on a Winter's Night a Traveler* - Italo Calvino
+    - *On Beauty* - Zadie Smith
+    - *A Little Life* - Hanya Yanagihara
+    - *Kairos* - Jenny Erpenbeck
+  </BookList>
 
-## 🤖 Science Fiction
-<BookList>
-- *Station Eleven* - Emily St. John Mandel
-- *Never Let me Go* - Kazuo Ishiguro
-- *The Three Body Problem* - Liu Cixin
-- *Hard-boiled Wonderland and the End of the World* - Haruki Murakami
-- *Brave New World* - Aldous Huxley
-- *The Handmaid's Tale* - Margaret Atwood
-</BookList>
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🍎 Classics</h2>
 
-<Callout>
+  <BookList>
+    - *The Grapes of Wrath* - John Steinbeck
+    - *Crime and Punishment* - Fyodor Dostoevsky
+    - *Gravity's Rainbow* - Thomas Pynchon
+    - *The Sun Also Rises* - Ernest Hemmingway
+    - *To Kill a Mockingbird* - Harper Lee
+    - *Great Expectations* - Charles Dickens
+  </BookList>
 
-</Callout>
+  <Callout>
+    I find that the protagonist Raskolnikov of *Crime and Punishment* seems to find his way into the modern mainstream news media cycle rather often.
+  </Callout>
 
----
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🤖 Science Fiction</h2>
 
-## 🏛️ Philosophy
-<BookList>
-- *The Myth of Sisyphus* - Albert Camus
-- *The Stranger* - Albert Camus
-- *
-</BookList>
-🔍 Recommendations coming soon!
+  <BookList>
+    - *Station Eleven* - Emily St. John Mandel
+    - *Never Let me Go* - Kazuo Ishiguro
+    - *The Three Body Problem* - Liu Cixin
+    - *Hard-boiled Wonderland and the End of the World* - Haruki Murakami
+    - *Brave New World* - Aldous Huxley
+    - *The Handmaid's Tale* - Margaret Atwood
+  </BookList>
 
----
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🏛️ Philosophy</h2>
 
-## 🍷 Wine, Viniculture, and Enology
-<BookList>
-- *Windows on the World Complete Wine Course* - Kevin Zraly
-- *The New French Wine - Redefining the World's Greatest Wine Culture* - Jon Bonné
-- *Wine Folly* — Madeline Puckette & Justin Hammack
-- *How to be a Wine Expert* - James M. Gabler
-- *Wein ist Genuss - Ein Wein-Reiseführer der ganz besonderen Art* - Ingrid Toonen and Melih Günsel
-- *Drink This Now! Step by step lessons for the aspiring wine connoisseur* - John Boyer
-</BookList>
+  <BookList>
+    - *The Myth of Sisyphus* - Albert Camus
+    - *The Stranger* - Albert Camus
+  </BookList>
 
-<Callout>
-For both casual enthusiasts and serious connoisseurs, *Wine Folly* is a fantastic guide to the world of wine.
-</Callout>
+  <p style={{ marginTop: '1rem', fontStyle: 'italic', color: '#666' }}>🔍 Recommendations coming soon!</p>
 
----
+  <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3', fontFamily: 'Georgia, serif' }}>🍷 Wine, Viniculture, and Enology</h2>
 
-Happy reading! 📖✨
+  <BookList>
+    - *Windows on the World Complete Wine Course* - Kevin Zraly
+    - *The New French Wine - Redefining the World's Greatest Wine Culture* - Jon Bonné
+    - *Wine Folly* — Madeline Puckette & Justin Hammack
+    - *How to be a Wine Expert* - James M. Gabler
+    - *Wein ist Genuss - Ein Wein-Reiseführer der ganz besonderen Art* - Ingrid Toonen and Melih Günsel
+    - *Drink This Now! Step by step lessons for the aspiring wine connoisseur* - John Boyer
+  </BookList>
+
+  <Callout>
+    For both casual enthusiasts and serious connoisseurs, *Wine Folly* is a fantastic guide to the world of wine.
+  </Callout>
+
+  <div style={{ fontFamily: 'Georgia, serif', textAlign: 'center', margin: '3rem 0', fontSize: '1.2rem', fontStyle: 'italic', color: '#0056b3' }}>
+    Happy reading! 📖✨
+  </div>
+</div>
