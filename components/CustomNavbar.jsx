@@ -1,10 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const CustomSidebar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile on component mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Check initially
+    checkMobile();
+
+    // Set sidebar state based on device
+    if (isMobile) {
+      setIsOpen(false);
+      document.body.classList.add('sidebar-collapsed');
+    } else {
+      setIsOpen(true);
+      document.body.classList.remove('sidebar-collapsed');
+    }
+
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [isMobile]);
 
   const isActive = (path) => {
     return router.pathname === path ? 'active-nav-link' : '';
