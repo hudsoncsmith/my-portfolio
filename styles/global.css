@@ -149,36 +149,77 @@ body.sidebar-collapsed {
 
 @media (max-width: 768px) {
   body {
-    padding-left: 0;
+    padding-left: 0 !important; /* Force no padding on mobile */
+  }
+
+  body.sidebar-collapsed {
+    padding-left: 0 !important;
   }
 
   .top-logo-bar {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
+    justify-content: center; /* Center the logo on mobile */
   }
 
   .main-logo {
-    width: 300px;
+    width: 250px;
   }
 
   .custom-sidebar {
     width: 80%;
-    max-width: 300px;
-    top: 80px; /* Smaller top spacing on mobile */
-    height: calc(100vh - 80px);
+    max-width: 250px;
+    top: 70px; /* Smaller top spacing on mobile */
+    height: calc(100vh - 70px);
+    transform: translateX(-100%); /* Ensure it's fully hidden when closed */
+  }
+
+  .custom-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .custom-sidebar.closed {
+    transform: translateX(-100%);
   }
 
   .sidebar-toggle {
-    top: 90px; /* Adjusted for mobile */
+    top: 80px; /* Adjusted for mobile */
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    z-index: 1002; /* Ensure it's always on top */
   }
 
   .sidebar-toggle.open {
-    left: calc(80% + 10px);
-    max-left: 310px;
+    left: calc(80% - 10px);
+    max-width: 240px;
   }
 
   .main-content {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  /* Additional mobile fixes */
+
+  /* Reading list page fixes */
+  h1[style*="WebkitBackgroundClip"] {
+    font-size: 1.8rem !important;
+  }
+
+  div[style*="fontFamily: 'Georgia, serif'"] {
+    max-width: 100% !important;
+  }
+
+  div[style*="display: flex"][style*="justifyContent: center"] {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div[style*="display: flex"][style*="justifyContent: center"] a {
+    margin: 0.5rem 0 !important;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
   }
 }
 
@@ -329,18 +370,20 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
 
 @media (max-width: 768px) {
   .hero-section {
-    flex-direction: column;
-    padding: 1.5rem;
-    width: 90%;
+    flex-direction: column-reverse; /* Reverse order to show image first */
+    padding: 1rem;
+    width: 95%;
+    margin-top: 0.5rem;
   }
 
   .content-wrapper {
     padding-right: 0;
     text-align: center;
+    margin-top: 1.5rem; /* Add space between image and text */
   }
 
   .content-wrapper h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -348,11 +391,26 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
 
   .bio-text {
     text-align: left;
+    font-size: 1rem;
   }
 
   .image-wrapper {
-    margin-top: 1.5rem;
-    max-width: 250px;
+    margin: 0 auto; /* Center the image */
+    max-width: 200px;
+    width: 100%;
+  }
+
+  /* Ensure buttons stack properly on mobile */
+  .cta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 200px;
   }
 }
 
@@ -418,11 +476,13 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
     flex-direction: column;
     text-align: center;
     padding: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .education-card img {
     margin-right: 0 !important;
     margin-bottom: 1rem;
+    max-width: 80px !important; /* Smaller image on mobile */
   }
 
   .education-card div {
@@ -431,6 +491,12 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
 
   .education-card h3 {
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .education-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
   }
 }
 
