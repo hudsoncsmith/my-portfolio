@@ -771,6 +771,8 @@ body.sidebar-collapsed {
   padding-left: 0;
 }
 
+
+
 @media (max-width: 768px) {
   body {
     padding-left: 0 !important; /* Force no padding on mobile */
@@ -831,18 +833,40 @@ body.sidebar-collapsed {
 
   /* Additional mobile fixes */
 
-  /* Reading list page fixes */
+  /* Reading list and education page fixes */
   h1[style*="WebkitBackgroundClip"] {
     font-size: 1.8rem !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
   }
 
   div[style*="fontFamily: 'Georgia, serif'"] {
     max-width: 100% !important;
+    padding: 0 1rem !important;
   }
 
   div[style*="display: flex"][style*="justifyContent: center"] {
     flex-direction: column;
     align-items: center;
+    width: 100% !important;
+  }
+
+  /* Fix hero section on reading list and education pages */
+  .hero-section[style*="flexDirection: 'column'"] {
+    padding: 1.5rem !important;
+    width: 95% !important;
+    margin: 1rem auto !important;
+  }
+
+  /* Fix education cards on mobile */
+  .education-card {
+    padding: 1rem !important;
+  }
+
+  .education-card img {
+    margin-bottom: 1rem !important;
   }
 
   div[style*="display: flex"][style*="justifyContent: center"] a {
@@ -1042,6 +1066,8 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
     width: 100%;
     max-width: 200px;
   }
+
+
 }
 
 .styled-image {
