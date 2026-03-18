@@ -1,4 +1,7 @@
-export const metadata = {
+import type { Metadata } from 'next'
+import '../styles/global.css'
+
+export const metadata: Metadata = {
   title: 'Hudson C. Smith',
   description: 'Portfolio website',
 }
