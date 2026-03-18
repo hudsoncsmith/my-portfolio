@@ -12,10 +12,10 @@ This website is a modern static site built using the following technologies:
 
 ## ✨ Vibe Coding
 
-This project is a product of "Vibe Coding"—a development philosophy prioritizing flow state, creativity, and the leverage of modern AI tools.
+This project is a product of "Vibe Coding"—a development philosophy prioritizing flow state, creativity, and the leverage of modern AI tools. I started working on this project in 2024, with the goal of learning more about maintaining and deploying web pages. 
 
 Instead of getting bogged down in boilerplate or repetitive tasks, I utilized AI coding assistants (like Gemini) to:
-*   Rapidly prototype UI ideas (like the floating envelope animation).
+*   Rapidly prototype UI ideas and styles
 *   Troubleshoot complex dependency issues.
 *   Refine styles and layouts efficiently.
 
