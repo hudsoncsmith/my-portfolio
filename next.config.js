@@ -1,3 +1,10 @@
-const withNextra = require('nextra')('nextra-theme-docs', './theme.config.tsx')
+const nextra = require('nextra').default || require('nextra')
 
-module.exports = withNextra()
+const withNextra = nextra({
+  defaultShowCopyCode: true
+})
+
+module.exports = withNextra({
+  reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
+})

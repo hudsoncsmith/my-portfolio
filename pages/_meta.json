@@ -6,15 +6,5 @@
   "resume": {
     "type": "page",
     "title": "Resume"
-  },
-  "contact": {
-    "type": "page",
-    "title": "LinkedIn ↗",
-    "href": "https://www.linkedin.com/in/hudsoncsmith/",
-    "newWindow": true
-  },
-  "blog": {
-    "type": "page",
-    "title": "Blog"
   }
 }
