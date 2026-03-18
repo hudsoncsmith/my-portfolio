@@ -1382,19 +1382,11 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
 /* PDF Viewer Styles */
 .pdf-container {
   width: 100%;
-<<<<<<< Updated upstream
   aspect-ratio: 8.5 / 11;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-=======
-  aspect-ratio: 8.5 / 11; /* Standard Letter aspect ratio for auto-resizing */
-  min-height: 600px;
-  background-color: transparent;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
->>>>>>> Stashed changes
   overflow: hidden;
   margin: 2rem auto;
   display: block;
@@ -1405,10 +1397,7 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   height: 100%;
   border: none;
   display: block;
-<<<<<<< Updated upstream
   overflow: hidden;
-=======
->>>>>>> Stashed changes
 }
 
 .pdf-fallback {
@@ -1421,8 +1410,6 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
-<<<<<<< Updated upstream
-
 /* Portfolio Page Styles */
 .portfolio-grid {
   display: grid;
@@ -1492,5 +1479,3 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   width: fit-content;
   align-self: flex-start;
 }
-=======
->>>>>>> Stashed changes
