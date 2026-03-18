@@ -15,43 +15,43 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
 <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
   <h2 style={{ fontSize: '1.8rem', marginTop: '3rem', marginBottom: '1rem', borderBottom: '2px solid #0056b3', paddingBottom: '0.5rem', color: '#0056b3' }}>Featured Projects</h2>
 
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
-    <div style={{ border: '1px solid #e0e0e0', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
-      <div style={{ height: '210px', overflow: 'hidden' }}>
-        <img src="/images/abb_VDI.png" alt="ABB VDI project cover" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }} />
+  <div className="portfolio-grid">
+    <div className="portfolio-card">
+      <div className="portfolio-card-image">
+        <img src="/images/abb_VDI.png" alt="ABB VDI project cover" style={{ objectPosition: 'center 30%' }} />
       </div>
-      <div style={{ padding: '1.5rem' }}>
-        <h3 style={{ color: '#0056b3', marginBottom: '0.5rem' }}>Prediction of Stopping Behavior for Robot Safety</h3>
+      <div className="portfolio-card-content">
+        <h3>Prediction of Stopping Behavior for Robot Safety</h3>
         <p>ABB Corporate Research / TU Darmstadt / Virginia Tech — Published at VDI Mechatroniktagung 2024</p>
         <p>Neural-network modeling of robot stop behavior for safe collaborative operations under ISO/TS 15066, including experimental validation with ABB IRB 1100 and dual-channel safety concept.</p>
-        <CTAButton href="/portfolio/abb" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
+        <CTAButton href="/portfolio/abb">
           Learn More
         </CTAButton>
       </div>
     </div>
 
-    <div style={{ border: '1px solid #e0e0e0', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
-      <div style={{ height: '200px', background: 'linear-gradient(135deg, rgba(235,245,255,0.9) 0%, rgba(225,240,255,0.9) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span style={{ fontSize: '4rem' }}>🧠</span>
+    <div className="portfolio-card">
+      <div className="portfolio-card-image">
+        <img src="/images/sanding_photo.jpeg" alt="Aerospace MRO Robotic Automation" />
       </div>
-      <div style={{ padding: '1.5rem' }}>
-        <h3 style={{ color: '#0056b3', marginBottom: '0.5rem' }}>AI Integration Projects</h3>
-        <p>Implemented machine learning solutions for industrial applications, focusing on computer vision and predictive maintenance.</p>
-        <CTAButton href="#" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
-          Coming Soon
+      <div className="portfolio-card-content">
+        <h3>Aerospace MRO Robotic Automation</h3>
+        <p>On-site deployment and process development for a robotic sanding system used in commercial airline maintenance, repair, and overhaul.</p>
+        <CTAButton href="/portfolio/aerospace-mro">
+          View Project
         </CTAButton>
       </div>
     </div>
 
-    <div style={{ border: '1px solid #e0e0e0', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
-      <div style={{ height: '200px', overflow: 'hidden' }}>
-        <img src="/images/cutting.jpeg" alt="Foundry Robotic Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    <div className="portfolio-card">
+      <div className="portfolio-card-image">
+        <img src="/images/cutting.jpeg" alt="Robotic Cutting" />
       </div>
-      <div style={{ padding: '1.5rem' }}>
-        <h3 style={{ color: '#0056b3', marginBottom: '0.5rem' }}>Robotic Solutions for the Foundry</h3>
-        <p>Designed and implemented adaptive robotic systems for foundry workflows including cutting, casting handling, and thermal-aware safety monitoring.</p>
-        <CTAButton href="#" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
-          Coming Soon
+      <div className="portfolio-card-content">
+        <h3>Robotic Cutting</h3>
+        <p>Developed scan-to-path robotic cutting applications with closed-loop force control for heavy industrial parts, leading to successful R&D demonstrations for Caterpillar.</p>
+        <CTAButton href="/portfolio/foundry">
+          View Project
         </CTAButton>
       </div>
     </div>
