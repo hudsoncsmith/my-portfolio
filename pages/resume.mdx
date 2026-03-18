@@ -1,8 +1,27 @@
-# Resume
+---
+title: Resume
+description: "Professional experience and qualifications."
+---
 
-<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '2rem' }}>
-  <iframe
-    src="https://drive.google.com/file/d/1jHthBRD9NtMnvSTTBgo3tRslqzmVJKxM/preview"
-    style={{ width: '100%', minHeight: '85vh', border: '1px solid #e0e0e0', borderRadius: '12px' }}
-  ></iframe>
+import { HeroSection } from '../components/StyledComponents';
+
+<HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Resume</h1>
+  <p style={{ fontSize: '1.1rem', color: '#1f3a5e', maxWidth: '800px' }}>
+    Below is a digital copy of my resume. You can view it directly here or download a copy for your records.
+  </p>
+  <a className="cta-button resume" href="/resume.pdf" download target="_blank" style={{ marginTop: '1.5rem', display: 'inline-block' }}>
+    Download PDF
+  </a>
+</HeroSection>
+
+<div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem 4rem' }}>
+  <div className="pdf-container">
+    <object data="/resume.pdf#toolbar=0&navpanes=0&view=FitH" type="application/pdf" className="pdf-object">
+      <div className="pdf-fallback">
+        <p>It appears your browser doesn't support embedded PDFs.</p>
+        <a className="cta-button" href="/resume.pdf" download>Download Resume</a>
+      </div>
+    </object>
+  </div>
 </div>

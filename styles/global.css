@@ -1378,3 +1378,34 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   margin: 0 auto 2rem auto;
   display: block;
 }
+
+/* PDF Viewer Styles */
+.pdf-container {
+  width: 100%;
+  aspect-ratio: 8.5 / 11; /* Standard Letter aspect ratio for auto-resizing */
+  min-height: 600px;
+  background-color: transparent;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin: 2rem auto;
+  display: block;
+}
+
+.pdf-object {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.pdf-fallback {
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.pdf-fallback p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
