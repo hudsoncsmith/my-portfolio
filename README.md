@@ -9,7 +9,6 @@ This website is a modern static site built using the following technologies:
 *   **[Next.js](https://nextjs.org/)**: The React framework for the web, enabling server-side rendering and static site generation.
 *   **[Nextra](https://nextra.site/)**: A framework on top of Next.js that allows for writing content in MDX (Markdown + React), making it incredibly easy to maintain content-heavy pages like the Reading List and Portfolio.
 *   **[React](https://reactjs.org/)**: For building interactive UI components.
-*   **CSS**: Custom styling for the unique postcard loading animation and responsive layouts.
 
 ## ✨ Vibe Coding
 
