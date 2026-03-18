@@ -1410,6 +1410,14 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
+
+@media (max-width: 768px) {
+  .pdf-container {
+    height: 80vh;
+    aspect-ratio: unset;
+  }
+}
+
 /* Portfolio Page Styles */
 .portfolio-grid {
   display: grid;

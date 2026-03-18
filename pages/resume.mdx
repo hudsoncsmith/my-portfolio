@@ -17,10 +17,8 @@ import { HeroSection } from '../components/StyledComponents';
 
 <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem 4rem' }}>
   <div className="pdf-container">
-    <object data="/resume_pdf.pdf#view=FitH" type="application/pdf" className="pdf-object">
-      <div className="pdf-fallback">
-        <p>It appears your browser doesn't support embedded PDFs. You can <a href="/resume_pdf.pdf" download="Hudson_Smith_Resume.pdf">download it directly</a>.</p>
-      </div>
-    </object>
+    <iframe src="/resume_pdf.pdf#toolbar=0" className="pdf-object" title="Hudson Smith's Resume">
+      <p>It appears your browser doesn't support embedded PDFs. You can <a href="/resume_pdf.pdf" download="Hudson_Smith_Resume.pdf">download it directly</a>.</p>
+    </iframe>
   </div>
 </div>
