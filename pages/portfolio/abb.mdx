@@ -1,33 +1,53 @@
 # Thesis Summary: Estimation of Stopping Behavior for Industrial Robots
 
-This thesis represents a collaborative effort between **ABB Corporate Research in Ladenburg**, **Virginia Tech**, and the **Institute for Mechatronic Systems at TU Darmstadt**. The collaboration involved research into improving the safety of industrial robots, specifically focusing on the estimation of stopping behavior using machine learning techniques.
+import { CTAButton } from '../../components/StyledComponents';
 
-### Abstract
+## Prediction of Stopping Behavior for Robot Safety
 
-The study presents a procedure for estimating the stopping behavior of industrial robots using a trained neural network. The trained network is presented as a single channel in a redundant architecture for safety control applications, with future integration potential for an analytical model of robot stopping behavior.
+<img src="/images/abb_VDI.png" alt="ABB VDI" style={{ display: 'block', maxWidth: '500px', width: '90%', height: 'auto', margin: '1rem auto' }} />
 
-The study derives basic physical relations for simplified articulated manipulators and motivates the choice of quantities to predict robot stopping behavior. It uses these to train and test a network that predicts stopping distances and times. The robot stopping behavior is evaluated according to ISO 10218-1, ISO/TS 15066, and ISO 13849-1 standards, defining safety-related stopping distances and times. Previous research in robot stopping behavior and the use of machine learning in industrial robotics, particularly in predicting forward and inverse kinematics, is discussed.
+ABB Corporate Research / TU Darmstadt / Virginia Tech — Published at VDI Mechatroniktagung 2024
 
-A state-driven data collection program was developed to conduct controlled stop experiments. This program collected data for both simulated and real robot systems. Special attention was given to identifying meaningful stopping times, including separating pre-deceleration and post-deceleration phases. The study defines robot stopping in a safety context, focusing on motion residuals over short distances (less than 1mm) and low velocities (less than 1mm/s) as irrelevant for safety.
+### Background & Motivation
 
-The research developed a dual-network structure to predict stopping distances and times for the first three joints of a manipulator without considering payloads. The networks were validated for their ability to interpolate and extrapolate predictions for different initial conditions not included in the training and testing data. A method for calculating prediction errors was applied to assess both interpolation and extrapolation performance.
+Safe deployment of industrial robots requires knowing exactly how far and how long a robot will travel after a stop command is issued. This stopping behavior — governed by joint positions, velocities, and the specific stop function used — must be characterized before a system goes live, and ideally predicted in real time for dynamic safety functions like speed-and-separation monitoring under ISO/TS 15066. Existing approaches relied on physical models or conservative worst-case estimates. This research explored whether a neural network could predict stopping behavior accurately enough to serve as one channel of a certified dual-channel safety function, alongside a physics-empirical model.
 
-The network was highly successful at interpolation, showing comparable or nominally higher errors for validation data compared to training and testing data. However, significant prediction errors were observed in extrapolation, particularly for new initial velocity and positional conditions.
+### Experimental Design
 
-### Future Work
+All experiments were conducted on an ABB IRB 1100 robot (4kg payload, 580mm reach) using a controlled stop function triggered via RAPID command. The primary focus was the three main axes, with joint positions and velocities systematically varied across their operating ranges. A stop event is defined by three phases: a reaction time during which the robot continues moving (~100ms), a braking ramp, and final standstill.
 
-Future directions include enhancing predictions for stopping behavior with payloads and tooling, applications to collaborative robotics, the development of analytical models of stopping behavior, incorporating additional stopping functions, and using explainable AI methods and physics-informed networks.
+<img src="/images/braking_VDI.png" alt="Braking VDI" style={{ maxWidth: '500px', width: '100%', height: 'auto', margin: '1rem 0' }} />
 
-### Keywords
+Two datasets were generated: a training and test set of 31,752 stop experiments across 10,584 unique joint configurations, and an independent validation set of 13,500 experiments at 4,500 configurations not used during training. An additional 1,050 reference experiments were run for detailed analysis of Axis 1 behavior. All data was collected automatically via a purpose-built RAPID program that executed each configuration, triggered the stop, and logged joint angles, velocities, reaction time, and braking ramp duration.
 
-Industrial Robotics, Robot Safety, Physics-Informed Machine Learning, Stopping Behavior, Robot Stopping Distance, Robot Stopping Time, Speed and Separation Monitoring, Power and Force Limiting, Functional Safety, Safety Controls, Protective Devices
+### Neural Network Development
 
-### Publication
+The core of this research was developing a data-driven model capable of predicting stopping distances and times across the full joint state space. The network takes the 12-dimensional joint state [position, velocity] as input and outputs 8 values: final joint positions after stopping, reaction time, and braking ramp duration.
 
-For more detailed information, you can access the thesis at the following persistent link:  
-[Thesis on Virginia Tech Digital Library](https://hdl.handle.net/10919/117240)
+The architecture uses two sequential sub-networks. The first maps the input state to final joint positions after the stop (6 outputs, hidden layers of 15–10–10 nodes). The second takes those predicted final positions along with the original input to predict reaction time and braking duration (2 outputs, hidden layers of 20–15–15 nodes). Stopping distances and times differ substantially in magnitude, variance, and physical units, which motivated this decoupled structure.
+
+The network was implemented in PyTorch using a sigmoid activation function, linear layer types, and the ADAM optimizer. Separate learning rates were tuned for each sub-network: 10⁻⁴ for distance prediction and 10⁻² for time prediction, with batch sizes of 15 and 30 respectively. Training data was normalized to [−1, +1] and split 80/20 for training and testing. Convergence was assessed using MSE loss and observed after approximately 50 epochs for both distance and time sub-networks across all three axes.
+
+### Results
+
+On interpolation — configurations within the training domain — the network achieved:
+
+- Stopping distance RMSE: 0.90° (training and test), 0.75° (independent validation)
+- Stopping time RMSE: 13ms (training and test), 14ms (independent validation)
+
+The slight improvement on validation data is attributed to the validation set excluding stationary-axis configurations, which the network handles less precisely.
+
+Extrapolation performance degraded as expected for a data-driven model. When trained on a reduced position range and evaluated outside it, distance RMSE rose to 1.7° and time RMSE to 18ms. Velocity extrapolation was similarly limited, with distance RMSE reaching 2.7° and time RMSE 19ms at out-of-range speeds.
+
+Compared directly with the physics-empirical model on Axis 1, both approaches achieved mean absolute errors below 1° and 10ms within the training domain. At high velocities outside the training range, the physics-empirical model outperformed the neural network (2.7° vs. 3.3° MAE in distance; 10ms vs. 20ms in time), reinforcing the complementary nature of the two approaches for diverse redundancy.
+
+### Conclusion
+
+The research demonstrated that a neural network trained on real stop experiment data can predict robot stopping behavior with accuracy likely sufficient for implementation in a certified safety controller. Combined with the physics-empirical model as a second independent channel, this work lays the groundwork for a dual-channel online safety function capable of predicting stopping distances and times for any joint state — enabling tighter, more productive safety zones without sacrificing compliance with ISO 10218 and ISO/TS 15066.
 
 ---
 
-You can also find relevant documents on VDI Mechatronik regarding my research.  
-[VDI Mechatronik Document](link-to-vdi-document)
+<div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem' }}>
+	<CTAButton href="https://hdl.handle.net/10919/117240" target="_blank" rel="noopener noreferrer">Thesis on Virginia Tech</CTAButton>
+	<CTAButton href="/images/Tagungsband-VDI-Mechatronik2024.pdf" target="_blank" rel="noopener noreferrer">VDI Mechatronik Document</CTAButton>
+</div>

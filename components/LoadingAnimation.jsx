@@ -5,8 +5,8 @@ const LoadingAnimation = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Progress animation
-    const totalDuration = 8000; // 8 seconds total
+    // Progress animation (shortened for faster loading)
+    const totalDuration = 3000; // 3 seconds total
     const incrementInterval = 50; // Update every 50ms
     const incrementAmount = (incrementInterval / totalDuration) * 100;
 
@@ -17,14 +17,14 @@ const LoadingAnimation = ({ onFinished }) => {
       });
     }, incrementInterval);
 
-    // Start fade out animation after 8 seconds
+    // Start fade out animation after duration
     const fadeOutTimer = setTimeout(() => {
       setFadeOut(true);
 
       // Call onFinished after fade out animation completes
       setTimeout(() => {
         if (onFinished) onFinished();
-      }, 1000);
+      }, 600);
     }, totalDuration);
 
     return () => {
@@ -60,8 +60,8 @@ const LoadingAnimation = ({ onFinished }) => {
       const positions = [];
 
       for (let i = 0; i < totalEnvelopes; i++) {
-        // Delay increases with each envelope
-        const delay = 0.3 + (i * 0.15);
+        // Delay increases with each envelope (compressed for speed)
+        const delay = 0.05 + (i * 0.05);
 
         // Determine starting position (far outside viewport)
         let startX, startY;
@@ -108,8 +108,8 @@ const LoadingAnimation = ({ onFinished }) => {
       const endY = envelopePositions[i][3];
       const delay = envelopePositions[i][4];
 
-      // Consistent duration
-      const duration = 6; // Slightly faster to create more dynamic pile-up
+      // Consistent duration (shortened)
+      const duration = 2.5; // Faster animations for quicker loading
 
       // Slight rotation for more natural look
       const rotation = (i % 5) * 3 - 6; // Small variations: -6, -3, 0, 3, 6 degrees

@@ -39,10 +39,17 @@
     "@tanstack/react-virtual" "^3.0.0-beta.60"
     client-only "^0.0.1"
 
-"@img/sharp-win32-x64@0.33.5":
+"@img/sharp-darwin-arm64@0.33.5":
   version "0.33.5"
-  resolved "https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.33.5.tgz"
-  integrity sha512-MpY/o8/8kj+EcnxwvrP4aTJSWw/aZ7JIGR4aBeZkZw5B7/Jn+tY9/VNwtcoGmdT7GfggGIU4kygOMSbYnOrAbg==
+  resolved "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.33.5.tgz"
+  integrity sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==
+  optionalDependencies:
+    "@img/sharp-libvips-darwin-arm64" "1.0.4"
+
+"@img/sharp-libvips-darwin-arm64@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.0.4.tgz"
+  integrity sha512-XblONe153h0O2zuFfTAbQYAX2JhYmDHeWikp1LM9Hul9gVPjFY427k6dFEcOL72O01QxQsWi761svJ/ev9xEDg==
 
 "@mdx-js/mdx@^2.2.1", "@mdx-js/mdx@^2.3.0":
   version "2.3.0"
@@ -75,10 +82,10 @@
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
 
-"@napi-rs/simple-git-win32-x64-msvc@0.1.19":
+"@napi-rs/simple-git-darwin-arm64@0.1.19":
   version "0.1.19"
-  resolved "https://registry.npmjs.org/@napi-rs/simple-git-win32-x64-msvc/-/simple-git-win32-x64-msvc-0.1.19.tgz"
-  integrity sha512-FmNuPoK4+qwaSCkp8lm3sJlrxk374enW+zCE5ZksXlZzj/9BDJAULJb5QUJ7o9Y8A/G+d8LkdQLPBE2Jaxe5XA==
+  resolved "https://registry.npmjs.org/@napi-rs/simple-git-darwin-arm64/-/simple-git-darwin-arm64-0.1.19.tgz"
+  integrity sha512-viZB5TYgjA1vH+QluhxZo0WKro3xBA+1xSzYx8mcxUMO5gnAoUMwXn0ZO/6Zy6pai+aGae+cj6XihGnrBRu3Pg==
 
 "@napi-rs/simple-git@^0.1.19", "@napi-rs/simple-git@^0.1.9":
   version "0.1.19"
@@ -105,10 +112,10 @@
   resolved "https://registry.npmjs.org/@next/env/-/env-15.1.7.tgz"
   integrity sha512-d9jnRrkuOH7Mhi+LHav2XW91HOgTAWHxjMPkXMGBc9B2b7614P7kjt8tAplRvJpbSt4nbO1lugcT/kAaWzjlLQ==
 
-"@next/swc-win32-x64-msvc@15.1.7":
+"@next/swc-darwin-arm64@15.1.7":
   version "15.1.7"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-15.1.7.tgz"
-  integrity sha512-dC01f1quuf97viOfW05/K8XYv2iuBgAxJZl7mbCKEjMgdQl5JjAKJ0D2qMKZCgPWDeFbFT0Q0nYWwytEW0DWTQ==
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-15.1.7.tgz"
+  integrity sha512-hPFwzPJDpA8FGj7IKV3Yf1web3oz2YsR8du4amKw8d+jAOHfYHYFpMkoF6vgSY4W6vB29RtZEklK9ayinGiCmQ==
 
 "@popperjs/core@^2.11.6":
   version "2.11.8"

@@ -5,8 +5,8 @@ const SimpleLoadingAnimation = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Progress animation
-    const totalDuration = 3000; // 3 seconds total (faster loading)
+    // Progress animation (shortened for snappier loading)
+    const totalDuration = 1500; // 1.5 seconds total
     const incrementInterval = 50; // Update every 50ms
     const incrementAmount = (incrementInterval / totalDuration) * 100;
 
@@ -24,7 +24,7 @@ const SimpleLoadingAnimation = ({ onFinished }) => {
       // Call onFinished after fade out animation completes
       setTimeout(() => {
         if (onFinished) onFinished();
-      }, 800);
+      }, 500);
     }, totalDuration);
 
     return () => {
