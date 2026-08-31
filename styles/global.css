@@ -942,7 +942,7 @@ body.sidebar-collapsed {
   /* Additional mobile fixes */
 
   /* Reading list and education page fixes */
-  h1[style*="WebkitBackgroundClip"] {
+  h1[style*="-webkit-background-clip"] {
     font-size: 1.6rem !important;
     text-align: center !important;
     margin-left: auto !important;
@@ -955,7 +955,7 @@ body.sidebar-collapsed {
     box-sizing: border-box !important;
   }
 
-  div[style*="fontFamily: 'Georgia, serif'"] {
+  div[style*="font-family:Georgia"] {
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 0.5rem !important;
@@ -963,7 +963,7 @@ body.sidebar-collapsed {
     margin: 0 auto !important;
   }
 
-  div[style*="fontFamily: 'Georgia, serif'"] p {
+  div[style*="font-family:Georgia"] p {
     width: 100% !important;
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
@@ -971,14 +971,14 @@ body.sidebar-collapsed {
     overflow-wrap: break-word !important;
   }
 
-  div[style*="display: flex"][style*="justifyContent: center"] {
+  div[style*="display:flex"][style*="justify-content:center"] {
     flex-direction: column;
     align-items: center;
     width: 100% !important;
   }
 
   /* Fix hero section on reading list and education pages */
-  .hero-section[style*="flexDirection: 'column'"] {
+  .hero-section[style*="flex-direction:column"] {
     padding: 1.5rem !important;
     width: 90% !important;
     margin: 1rem auto !important;
@@ -987,7 +987,7 @@ body.sidebar-collapsed {
   }
 
   /* Fix text overflow issues */
-  .hero-section[style*="flexDirection: 'column'"] div {
+  .hero-section[style*="flex-direction:column"] div {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -996,14 +996,14 @@ body.sidebar-collapsed {
   }
 
   /* Ensure proper text sizing */
-  .hero-section[style*="flexDirection: 'column'"] p {
+  .hero-section[style*="flex-direction:column"] p {
     font-size: 1rem !important;
     line-height: 1.6 !important;
     margin-bottom: 1rem !important;
   }
 
   /* Fix section headings in reading list */
-  h2[style*="fontSize: '1.8rem'"] {
+  h2[style*="font-size:1.8rem"] {
     font-size: 1.4rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -1039,7 +1039,7 @@ body.sidebar-collapsed {
     overflow-wrap: break-word !important;
   }
 
-  div[style*="display: flex"][style*="justifyContent: center"] a {
+  div[style*="display:flex"][style*="justify-content:center"] a {
     margin: 0.5rem 0 !important;
     width: 100%;
     max-width: 200px;
@@ -1094,6 +1094,7 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
 /* Main content styling */
 .main-content {
   padding-top: 2rem;
+  padding-bottom: 4rem;
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 2rem;
@@ -1305,8 +1306,14 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
   .gradient-heading {
