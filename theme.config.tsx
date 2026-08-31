@@ -44,10 +44,10 @@ export default {
 
   // Remove GitHub and Discord links
   project: {
-    link: ''
+    link: undefined
   },
   chat: {
-    link: ''
+    link: undefined
   },
 
   // Customize the footer

@@ -68,17 +68,14 @@ const CustomSidebar = () => {
             <Link href="/" className={`sidebar-link ${isActive('/')}`}>
               Home
             </Link>
-            <Link href="/another" className={`sidebar-link ${isActive('/another')}`}>
-              Education
-            </Link>
-            <Link href="/reading_list" className={`sidebar-link ${isActive('/reading_list')}`}>
-              Reading List
-            </Link>
             <Link href="/portfolio" className={`sidebar-link ${isActive('/portfolio')}`}>
               Portfolio
             </Link>
             <Link href="/resume" className={`sidebar-link ${isActive('/resume')}`}>
               Resume
+            </Link>
+            <Link href="/education" className={`sidebar-link ${isActive('/education')}`}>
+              Education
             </Link>
             <a
               href="https://www.linkedin.com/in/hudsoncsmith/"
@@ -88,6 +85,9 @@ const CustomSidebar = () => {
             >
               LinkedIn
             </a>
+            <Link href="/reading_list" className={`sidebar-link ${isActive('/reading_list')}`}>
+              Reading List
+            </Link>
           </div>
 
           <div className="sidebar-footer">

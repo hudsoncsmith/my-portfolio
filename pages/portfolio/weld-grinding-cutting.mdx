@@ -1,0 +1,29 @@
+---
+title: Robotic Belt Grinding
+description: Process physics, toolpath directionality, and goal surface characterization for robotic belt grinding of large welds.
+---
+
+import { HeroSection } from '../../components/StyledComponents';
+
+<HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Robotic Belt Grinding</h1>
+  <p style={{ fontSize: '1.1rem', color: '#1f3a5e', maxWidth: '800px' }}>
+    A commercial R&D NRE program developing an automated belt grinding solution for large weld removal on curved industrial parts.
+  </p>
+</HeroSection>
+
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem 4rem' }}>
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Project Overview</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    As technical lead, I directed process development for this commercial R&D NRE program, integrating a robotic belt sander into our Scan&Grind platform to automate the removal of large welds on curved substrates. The work established a goal-surface characterization method for the robot to plan against, a set of process physics governing safe and efficient material removal, and the toolpath directionality and reachability logic needed to translate those constraints into a working grinding path.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Key Contributions</h2>
+  <ul style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333', paddingLeft: '1.5rem' }}>
+    <li style={{ marginBottom: '1rem' }}><strong>Goal Surface Characterization:</strong> Developed a method to isolate weld features from a scanned point cloud using color detection and fit a cylindrical goal surface to the remaining part geometry, giving the robot a reference and stop point for successive grinding passes.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Toolpath Directionality:</strong> Established a radial grinding direction so the material removal profile stayed consistent across the full width of the belt, after initial tangent-direction passes showed uneven removal.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Reachability-Driven Path Offsets:</strong> Built logic to offset the toolpath laterally as material was removed, keeping the belt sander's housing clear of the part as the tool progressed deeper into the weld.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Process Physics & Removal Rate Characterization:</strong> Ran structured grinding experiments across force, RPM, and abrasive grit combinations to characterize material removal rate, heat buildup, and consumable wear, converging on a validated process recipe.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Toolpath Planner Preconditions:</strong> Defined conservative per-pass and per-two-pass material removal limits, derived from the measured removal rate, as preconditions ensuring the planner always converges on the goal surface without overshoot.</li>
+  </ul>
+</div>
