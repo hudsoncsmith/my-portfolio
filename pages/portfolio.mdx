@@ -8,7 +8,7 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
   <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Portfolio</h1>
 
   <div style={{ lineHeight: '1.8', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
-    <p>Here you'll find a collection of my professional projects and academic work. My experience spans robotics, AI integration, and mechanical engineering.</p>
+    <p>Here you'll find a collection of my professional projects and academic work. My experience spans active deployments and activations of robotic cells, complex non-recurring engineering to meet customer needs, internal R&D sprints to expand applications and capabilities, and AI integration with robotics.</p>
   </div>
 </HeroSection>
 
@@ -18,14 +18,14 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
   <div className="portfolio-grid">
     <div className="portfolio-card">
       <div className="portfolio-card-image">
-        <img src="/images/abb_VDI.png" alt="ABB VDI project cover" style={{ objectPosition: 'center 30%' }} />
+        <img src="/images/plate_grinding.png" alt="Autonomous Plate Grinding & Inspection Cell" />
       </div>
       <div className="portfolio-card-content">
-        <h3>Prediction of Stopping Behavior for Robot Safety</h3>
-        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>ABB Corporate Research / TU Darmstadt / Virginia Tech · 2023–2024</p>
-        <p>Neural-network modeling of robot stop behavior for safe collaborative operations under ISO/TS 15066. Published through VDI Mechatroniktagung 2024; validated experimentally on ABB IRB 1100 hardware.</p>
-        <CTAButton href="/portfolio/abb">
-          Learn More
+        <h3>Autonomous Plate Grinding & Inspection Cell</h3>
+        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Government-Funded R&D NRE → Pilot</p>
+        <p>Closed-loop scan, detect, grind, and inspect robotic cell for rolling mill steel plate defect remediation. All ten deliverables and eight KPIs met or exceeded; converting to a pilot deployment.</p>
+        <CTAButton href="/portfolio/plate-grinding-inspection">
+          View Project
         </CTAButton>
       </div>
     </div>
@@ -36,7 +36,7 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
       </div>
       <div className="portfolio-card-content">
         <h3>Aerospace MRO Robotic Automation</h3>
-        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Commercial Deployment</p>
+        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Successful Commercial Deployment</p>
         <p>On-site deployment and process development for a robotic sanding system used at a commercial aerospace maintenance center. System transitioned to full production and is live under an active sustainment contract.</p>
         <CTAButton href="/portfolio/aerospace-mro">
           View Project
@@ -50,9 +50,23 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
       </div>
       <div className="portfolio-card-content">
         <h3>Robotic Cutting</h3>
-        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Commercial NRE → Demo</p>
+        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Contract-Winning Demo</p>
         <p>Developed scan-to-path robotic cutting applications with closed-loop force control for heavy industrial parts. R&D demonstration for the world's largest manufacturer of construction and mining equipment served as the proof point for a subsequent contract award.</p>
         <CTAButton href="/portfolio/foundry">
+          View Project
+        </CTAButton>
+      </div>
+    </div>
+
+    <div className="portfolio-card">
+      <div className="portfolio-card-image">
+        <img src="/images/headshot_computer.png" alt="Mobile Cold Spray Robotic Repair" />
+      </div>
+      <div className="portfolio-card-content">
+        <h3>Mobile Cold Spray Robotic Repair</h3>
+        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Government R&D Deployment</p>
+        <p>Introduced semi-autonomous scan-to-spray operation to a mobile cold spray trailer system in support of aircraft fleet readiness sustainment.</p>
+        <CTAButton href="/portfolio/cold-spray-repair">
           View Project
         </CTAButton>
       </div>
@@ -74,28 +88,14 @@ import { HeroSection, ContentWrapper, CTAButton } from '../components/StyledComp
 
     <div className="portfolio-card">
       <div className="portfolio-card-image">
-        <img src="/images/plate_grinding.png" alt="Autonomous Plate Grinding & Inspection Cell" />
+        <img src="/images/abb_VDI.png" alt="ABB VDI project cover" style={{ objectPosition: 'center 30%' }} />
       </div>
       <div className="portfolio-card-content">
-        <h3>Autonomous Plate Grinding & Inspection Cell</h3>
-        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Government-Funded R&D NRE → Pilot</p>
-        <p>Closed-loop scan, detect, grind, and inspect robotic cell for rolling mill steel plate defect remediation. All ten deliverables and eight KPIs met or exceeded; converting to a pilot deployment.</p>
-        <CTAButton href="/portfolio/plate-grinding-inspection">
-          View Project
-        </CTAButton>
-      </div>
-    </div>
-
-    <div className="portfolio-card">
-      <div className="portfolio-card-image">
-        <img src="/images/headshot_computer.png" alt="Mobile Cold Spray Robotic Repair" />
-      </div>
-      <div className="portfolio-card-content">
-        <h3>Mobile Cold Spray Robotic Repair</h3>
-        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>GrayMatter Robotics · Government R&D Deployment</p>
-        <p>Introduced semi-autonomous scan-to-spray operation to a mobile cold spray trailer system in support of aircraft fleet readiness sustainment.</p>
-        <CTAButton href="/portfolio/cold-spray-repair">
-          View Project
+        <h3>Prediction of Stopping Behavior for Robot Safety</h3>
+        <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.5rem' }}>ABB Corporate Research / TU Darmstadt / Virginia Tech · 2024</p>
+        <p>Neural-network modeling of robot stop behavior for safe collaborative operations under ISO/TS 15066. Published through VDI Mechatroniktagung 2024; validated experimentally on ABB IRB 1100 hardware.</p>
+        <CTAButton href="/portfolio/abb">
+          Learn More
         </CTAButton>
       </div>
     </div>
