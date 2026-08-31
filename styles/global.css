@@ -88,7 +88,29 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
   border-bottom: 2px solid #0056b3;
   padding-bottom: 0.5rem;
   color: #0056b3;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Georgia', serif;
+}
+
+/* Match the card treatment used on the education page for consistency */
+.section-content {
+  background: linear-gradient(135deg, rgba(245,250,255,0.9) 0%, rgba(225,240,255,0.9) 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.reading-section {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section-content {
+    padding: 1.25rem;
+  }
+
+  .reading-section h2 {
+    font-size: 1.4rem;
+  }
 }
 
 .reading-note {
@@ -1023,22 +1045,6 @@ body.sidebar-collapsed {
     margin-bottom: 1rem !important;
   }
 
-  /* Fix book lists on mobile */
-  ul[class*="AcademicList"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  ul[class*="AcademicList"] li {
-    padding-left: 1rem !important;
-    padding-right: 0.5rem !important;
-    font-size: 0.95rem !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-  }
-
   div[style*="display:flex"][style*="justify-content:center"] a {
     margin: 0.5rem 0 !important;
     width: 100%;
@@ -1099,6 +1105,19 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+/* Standard fade-in transition for page content (replaces the intro
+   loading screen on every navigation after the first) */
+.page-transition {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.page-transition-visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Hide sidebar on desktop since we have our custom navbar */

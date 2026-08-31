@@ -5,8 +5,9 @@ const SimpleLoadingAnimation = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Progress animation (shortened for snappier loading)
-    const totalDuration = 1500; // 1.5 seconds total
+    // Progress animation - timed so the last text line (delayed 2.1s,
+    // taking 0.5s to fade in) has finished before we start fading out.
+    const totalDuration = 3000; // 3 seconds total
     const incrementInterval = 50; // Update every 50ms
     const incrementAmount = (incrementInterval / totalDuration) * 100;
 
@@ -46,16 +47,16 @@ const SimpleLoadingAnimation = ({ onFinished }) => {
 
         {/* Text that appears one line at a time */}
         <div className="loading-text-container">
-          <div className="loading-text" style={{ animationDelay: '0.2s' }}>
+          <div className="loading-text" style={{ animationDelay: '0.3s' }}>
             Creative Problem Solver
           </div>
-          <div className="loading-text" style={{ animationDelay: '0.7s' }}>
+          <div className="loading-text" style={{ animationDelay: '0.9s' }}>
             Roboticist
           </div>
-          <div className="loading-text" style={{ animationDelay: '1.2s' }}>
+          <div className="loading-text" style={{ animationDelay: '1.5s' }}>
             Physicist
           </div>
-          <div className="loading-text" style={{ animationDelay: '1.7s' }}>
+          <div className="loading-text" style={{ animationDelay: '2.1s' }}>
             Mechanical Engineer
           </div>
         </div>

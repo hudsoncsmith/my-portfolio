@@ -6,33 +6,45 @@ const AcademicList = styled.ul`
   margin: 1.5rem 0;
   font-family: 'Georgia', serif;
   line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
 
   li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
     margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
+    padding: 0.15rem 0.5rem 0.5rem 0.35rem;
     border-left: 3px solid #0056b3;
-    padding-bottom: 0.5rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-      border-left-color: #004494;
-      background-color: rgba(235, 245, 255, 0.5);
-      padding-left: 2rem;
-    }
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     &:before {
       content: '\2022';
-      position: absolute;
-      left: 0.5rem;
+      flex-shrink: 0;
       color: #0056b3;
       font-weight: bold;
+    }
+  }
+
+  @media (hover: hover) {
+    li:hover {
+      border-left-color: #004494;
+      background-color: rgba(235, 245, 255, 0.5);
     }
   }
 
   em {
     font-style: italic;
     font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    li {
+      padding: 0.15rem 0 0.5rem 0.25rem;
+      font-size: 0.95rem;
+    }
   }
 `;
 
