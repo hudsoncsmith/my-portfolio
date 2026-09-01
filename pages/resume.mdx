@@ -4,6 +4,7 @@ description: "Professional experience and qualifications."
 ---
 
 import { HeroSection } from '../components/StyledComponents';
+import ResumeViewer from '../components/ResumeViewer';
 
 <HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
   <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Resume</h1>
@@ -23,9 +24,8 @@ import { HeroSection } from '../components/StyledComponents';
       style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
     />
   </div>
-  <iframe
+  <ResumeViewer
     src="/images/Hudson_Smith_Resume.pdf"
-    title="Hudson Smith Resume"
     style={{ width: '100%', minHeight: '85vh', border: '1px solid #e0e0e0', borderRadius: '12px' }}
   />
 </div>
