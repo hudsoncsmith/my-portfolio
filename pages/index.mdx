@@ -16,12 +16,6 @@ title: "Home"
      I hold two M.S. degrees - Mechanical Engineering from Virginia Tech and Mechanical and Process Engineering from TU Darmstadt. My master's thesis on predicting robot stopping behavior using deep neural networks was published through VDI Mechatroniktagung; 
      I also hold a B.A. from Hamilton College with dual majors in Physics and German Studies, where my undergraduate thesis was published in the Journal of Physical Chemistry C.
     </div>
-
-    <div className="cta-container">
-      <a href="/portfolio" className="cta-button">View My Work</a>
-      <a href="/resume" className="cta-button resume">Resume</a>
-      <a href="https://www.linkedin.com/in/hudsoncsmith/" className="cta-button linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
   </div>
 
   <div className="image-wrapper">
@@ -30,11 +24,35 @@ title: "Home"
 </div>
 
 <div style={{ textAlign: 'center', marginTop: '3rem', marginBottom: '3rem' }}>
-  <h2 className="gradient-heading">
-    Skills & Expertise
-  </h2>
-  <p style={{ fontSize: '1.1rem', color: '#333', marginBottom: '1.5rem' }}>A full breakdown of my core skills, tools, and hardware experience, each with a real example from my work.</p>
-  <a href="/skills" className="cta-button">View Skills & Expertise</a>
+  <h2 className="gradient-heading">Explore the Site</h2>
+
+  <div className="site-directory-grid">
+    <a href="/portfolio" className="site-directory-card">
+      <div className="site-directory-icon image-icon"><img src="/images/portfolio_icon_cropped.jpg" alt="" /></div>
+      <h3>Portfolio</h3>
+      <p>Projects across robotics, autonomy, and AI</p>
+    </a>
+    <a href="/resume" className="site-directory-card">
+      <div className="site-directory-icon" style={{ background: 'transparent', boxShadow: 'none' }}>📄</div>
+      <h3>Resume</h3>
+      <p>View or download my full resume</p>
+    </a>
+    <a href="/education" className="site-directory-card">
+      <div className="site-directory-icon image-icon"><img src="/images/Hamilton_College_seal.svg.png" alt="" style={{ padding: '4px', boxSizing: 'border-box' }} /></div>
+      <h3>Education</h3>
+      <p>Undergraduate and graduate study, coursework, and research</p>
+    </a>
+    <a href="/skills" className="site-directory-card">
+      <div className="site-directory-icon image-icon"><img src="/images/skills_icon_cropped.jpg" alt="" /></div>
+      <h3>Skills</h3>
+      <p>Core skills, tools, and hardware, with real examples</p>
+    </a>
+    <a href="https://www.linkedin.com/in/hudsoncsmith/" target="_blank" rel="noopener noreferrer" className="site-directory-card">
+      <div className="site-directory-icon" style={{ background: 'linear-gradient(135deg, #0A66C2, #0077B5)' }}>in</div>
+      <h3>LinkedIn</h3>
+      <p>Connect with me professionally</p>
+    </a>
+  </div>
 </div>
 
 <div style={{ textAlign: 'center', marginTop: '3rem', marginBottom: '4rem', paddingTop: '2rem', paddingBottom: '3rem', borderTop: '1px solid #e0e0e0' }}>

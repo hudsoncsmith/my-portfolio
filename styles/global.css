@@ -1461,6 +1461,79 @@ a[href="https://github.com/shuding/nextra-docs-template/issues/new"] {
   color: #666;
 }
 
+/* Site directory (home page): quick links to key pages */
+.site-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.site-directory-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-directory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.site-directory-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.site-directory-icon.image-icon {
+  background: white;
+  border: 1px solid #e6ecf5;
+}
+
+.site-directory-icon.image-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-directory-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: #0056b3;
+}
+
+.site-directory-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .site-directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .gradient-heading {
   text-align: center;
   margin-bottom: 2rem;
