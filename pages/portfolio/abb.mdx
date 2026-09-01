@@ -30,7 +30,7 @@ The core of this research was developing a data-driven model capable of predicti
 
 The architecture uses two sequential sub-networks. The first maps the input state to final joint positions after the stop (6 outputs, hidden layers of 15–10–10 nodes). The second takes those predicted final positions along with the original input to predict reaction time and braking duration (2 outputs, hidden layers of 20–15–15 nodes). Stopping distances and times differ substantially in magnitude, variance, and physical units, which motivated this decoupled structure.
 
-<img src="/images/neural_net_structure_singlejoint.png" alt="Neural network architecture for single-joint stopping behavior prediction, showing joint position/velocity inputs, hidden layers, and predicted final position and stop time outputs" style={{ maxWidth: '500px', width: '100%', height: 'auto', margin: '1rem auto', display: 'block' }} />
+<img src="/images/neural_net_structure.png" alt="Neural network architecture for single-joint stopping behavior prediction, showing the position sub-network (15-10-10) feeding predicted final positions into the time sub-network (20-15-15)" style={{ maxWidth: '700px', width: '100%', height: 'auto', margin: '1rem auto', display: 'block' }} />
 
 The network was implemented in PyTorch using a sigmoid activation function, linear layer types, and the ADAM optimizer. Separate learning rates were tuned for each sub-network: 10⁻⁴ for distance prediction and 10⁻² for time prediction, with batch sizes of 15 and 30 respectively. Training data was normalized to [−1, +1] and split 80/20 for training and testing. Convergence was assessed using MSE loss and observed after approximately 50 epochs for both distance and time sub-networks across all three axes.
 
