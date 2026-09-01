@@ -49,6 +49,11 @@ import { HeroSection, CTAButton } from '../../components/StyledComponents';
     <li style={{ marginBottom: '1rem' }}><strong>Safe Operation:</strong> Built in a hardcoded home pose and safety behavior so the arm holds position (torque on) when stopped, rather than dropping or continuing to move unexpectedly.</li>
   </ul>
 
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>What I'd Do Differently</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The cats were highly curious at first, but eventually got spooked by the sound of the STS3215 servo motors. They also weren't fooled by the setup at all: even with prey-like motion at the toy end of the rod, they mostly ignored the toy itself and went straight for the robot, which was the actual source of all the motion and noise. Next time, I'd use a soft or flexible robot covered in a softer material instead, both to make play more exciting for the cats and to cut down on the noise. You also probably don't need a full 6-DOF arm to produce this kind of motion in the first place, which is part of why this is likely the first, and probably one of the last, cat toys of its kind.
+  </p>
+
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'flex-start', marginBottom: '2rem' }}>
     <CTAButton href="https://github.com/hudsoncsmith/lerobot-cat-toy" target="_blank" rel="noopener noreferrer">View on GitHub</CTAButton>
     <CTAButton href="https://huggingface.co/docs/lerobot/en/so101" target="_blank" rel="noopener noreferrer">SO-101 Build Guide</CTAButton>
