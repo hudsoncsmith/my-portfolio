@@ -77,6 +77,9 @@ const CustomSidebar = () => {
             <Link href="/education" className={`sidebar-link ${isActive('/education')}`}>
               Education
             </Link>
+            <Link href="/skills" className={`sidebar-link ${isActive('/skills')}`}>
+              Skills
+            </Link>
             <a
               href="https://www.linkedin.com/in/hudsoncsmith/"
               className="sidebar-link"
