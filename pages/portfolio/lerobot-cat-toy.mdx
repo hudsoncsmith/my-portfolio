@@ -15,22 +15,13 @@ import { HeroSection, CTAButton } from '../../components/StyledComponents';
 <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem 4rem' }}>
   <div className="gallery-row" style={{ marginBottom: '1.5rem' }}>
     <div className="gallery-item horizontal" style={{ width: '100%', height: '600px' }}>
-      <video src="/images/lerobot_cat_toy.mp4" autoPlay loop muted playsInline style={{ objectPosition: 'center 35%' }} />
-    </div>
-  </div>
-
-  <div className="gallery-row" style={{ marginBottom: '3rem' }}>
-    <div className="gallery-item vertical">
-      <img src="/images/lerobot_cat_toy_1.jpeg" alt="A cat investigating the SO-101 arm on the dining table" />
-    </div>
-    <div className="gallery-item vertical">
-      <img src="/images/lerobot_cat_toy_2.jpeg" alt="A cat batting at the SO-101 arm mid-motion" />
+      <video src="/images/lerobot_cat_toy.mp4" autoPlay loop muted playsInline style={{ objectPosition: 'center 60%' }} />
     </div>
   </div>
 
   <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Project Overview</h2>
   <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
-    While cat-sitting for my partner's two cats, I built an SO-101 follower arm by hand following Hugging Face's official build guide, and wrote a script on top of their LeRobot library to generate randomized motions for a cat toy to keep them entertained. What started as a way to keep two bored cats happy turned into a small robotics exercise in its own right: forward kinematics, collision checking against the table, and watching the arm's live behavior in a meshcat viewer (no pun intended) before ever trusting it to move on its own near the cats.
+    While cat-sitting for my partner's two cats, I built both a leader and follower SO-101 arm by hand following Hugging Face's official build guide, and started out teleoperating the follower arm directly to play with the cats. After getting tired of manually operating it myself, I wrote a script on top of the LeRobot library to generate randomized motions for a cat toy so the arm could keep them entertained on its own. What started as a way to keep two bored cats happy turned into a small robotics exercise in its own right: forward kinematics, collision checking against the table, and watching the arm's live behavior in a meshcat viewer (no pun intended) before ever trusting it to move on its own near the cats.
   </p>
   <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
     The script itself loads the SO-101's URDF model and uses placo to compute forward kinematics for the arm's current joint state, so it can check every candidate move against the tabletop before executing it. The meshcat viewer mirrors the robot alongside a plane-restricted zone above the table, making it easy to confirm a planned motion stays clear of the surface before it ever runs on the real arm. From a manually-set home pose, motions are randomized between specific joint-angle bounds, mixing slow "glides" with quicker "darts" while avoiding joint moves that are too large a jump to be safe, streaming commands to the real arm at 30 FPS.
@@ -41,7 +32,7 @@ import { HeroSection, CTAButton } from '../../components/StyledComponents';
 
   <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Key Contributions</h2>
   <ul style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333', paddingLeft: '1.5rem' }}>
-    <li style={{ marginBottom: '1rem' }}><strong>Hardware Build:</strong> Assembled and wired the SO-101 follower arm from Hugging Face's official build guide.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Hardware Build:</strong> Assembled and wired both a leader and follower SO-101 arm from Hugging Face's official build guide, starting out with direct teleoperation before automating it.</li>
     <li style={{ marginBottom: '1rem' }}><strong>Forward Kinematics & Collision Checking:</strong> Used the SO-101 URDF with placo to compute forward kinematics for the arm, checking every candidate motion against a plane-restricted zone above the table before executing it.</li>
     <li style={{ marginBottom: '1rem' }}><strong>Bounded Randomized Motion:</strong> Wrote a motion generator that randomizes joint states within specific angle bounds, mixing slow glides and quick darts while avoiding overly large joint moves that could be unsafe.</li>
     <li style={{ marginBottom: '1rem' }}><strong>Live Visualization:</strong> Used a live meshcat viewer showing the robot and its restricted zone above the table, with a one-shot pose-check mode for calibrating joint offsets before trusting the arm near the cats.</li>
@@ -57,5 +48,15 @@ import { HeroSection, CTAButton } from '../../components/StyledComponents';
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'flex-start', marginBottom: '2rem' }}>
     <CTAButton href="https://github.com/hudsoncsmith/lerobot-cat-toy" target="_blank" rel="noopener noreferrer">View on GitHub</CTAButton>
     <CTAButton href="https://huggingface.co/docs/lerobot/en/so101" target="_blank" rel="noopener noreferrer">SO-101 Build Guide</CTAButton>
+  </div>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Image Gallery</h2>
+  <div className="gallery-row">
+    <div className="gallery-item vertical">
+      <img src="/images/lerobot_cat_toy_1.jpeg" alt="A cat investigating the SO-101 arm on the dining table" />
+    </div>
+    <div className="gallery-item vertical">
+      <img src="/images/lerobot_cat_toy_2.jpeg" alt="A cat batting at the SO-101 arm mid-motion" />
+    </div>
   </div>
 </div>
