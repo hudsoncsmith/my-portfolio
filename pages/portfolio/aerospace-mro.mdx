@@ -17,7 +17,7 @@ import { HeroSection } from '../../components/StyledComponents';
     <img 
       src="/images/sanding_photo.jpeg" 
       alt="Robotic Sanding System for Aerospace MRO" 
-      style={{ width: '100%', display: 'block' }} 
+      style={{ width: '100%', maxHeight: '500px', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} 
     />
   </div>
 
@@ -35,7 +35,11 @@ import { HeroSection } from '../../components/StyledComponents';
 
   <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Image Gallery</h2>
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-    <img src="/images/sanding_photo1.jpeg" alt="Sanding process detail" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }} />
-    <img src="/images/sanding_photo2.jpeg" alt="Finished aircraft component" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }} />
+    <div style={{ height: '320px', background: '#f0f4f8', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+      <img src="/images/sanding_photo1.jpeg" alt="Sanding process detail" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+    </div>
+    <div style={{ height: '320px', background: '#f0f4f8', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+      <img src="/images/sanding_photo2.jpeg" alt="Finished aircraft component" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+    </div>
   </div>
 </div>
