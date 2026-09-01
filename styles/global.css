@@ -212,7 +212,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
   width: calc(50% - 0.75rem);
 }
 
-.gallery-item img {
+.gallery-item img, .gallery-item video {
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -92,6 +92,11 @@ const CustomSidebar = () => {
 
           <div className="sidebar-footer">
             <p>© {new Date().getFullYear()} Hudson C. Smith</p>
+            <p>
+              <a href="https://github.com/hudsoncsmith" target="_blank" rel="noopener noreferrer" style={{ color: '#666' }}>
+                Site source & personal projects on GitHub
+              </a>
+            </p>
           </div>
         </div>
       </nav>
