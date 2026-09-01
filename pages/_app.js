@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 const SITE_URL = 'https://www.hudsoncsmith.com'
 const SITE_TITLE = 'Hudson C. Smith'
 const SITE_DESCRIPTION = 'Robotics engineer building automation systems for aerospace, defense, and manufacturing.'
-const SITE_IMAGE = `${SITE_URL}/images/sanding_photo.jpeg`
+const SITE_IMAGE = `${SITE_URL}/images/og_image.jpg`
 
 const HAS_LOADED_KEY = 'hasShownIntroLoader'
 
