@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 const SITE_URL = 'https://www.hudsoncsmith.com'
 const SITE_TITLE = 'Hudson C. Smith'
 const SITE_DESCRIPTION = 'Robotics engineer building automation systems for aerospace, defense, and manufacturing.'
+const SITE_THUMBNAIL_DESCRIPTION = 'Creative Problem Solver - Roboticist, Physicist, Mechanical Engineer'
 const SITE_IMAGE = `${SITE_URL}/images/og_image.jpg`
 
 const HAS_LOADED_KEY = 'hasShownIntroLoader'
@@ -45,13 +46,13 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="description" content={SITE_DESCRIPTION} />
 
         <meta property="og:title" content={SITE_TITLE} />
-        <meta property="og:description" content={SITE_DESCRIPTION} />
+        <meta property="og:description" content={SITE_THUMBNAIL_DESCRIPTION} />
         <meta property="og:image" content={SITE_IMAGE} />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={SITE_TITLE} />
-        <meta name="twitter:description" content={SITE_DESCRIPTION} />
+        <meta name="twitter:description" content={SITE_THUMBNAIL_DESCRIPTION} />
         <meta name="twitter:image" content={SITE_IMAGE} />
       </Head>
 
