@@ -147,19 +147,11 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
 .academic-list li {
   position: relative;
   margin-bottom: 1rem;
-  padding: 0.15rem 0.5rem 0.5rem 1.25rem;
+  padding: 0.15rem 0.5rem 0.5rem 0.75rem;
   border-left: 3px solid #0056b3;
   transition: border-color 0.3s ease, background-color 0.3s ease;
   word-wrap: break-word;
   overflow-wrap: break-word;
-}
-
-.academic-list li:before {
-  content: '\2022';
-  position: absolute;
-  left: 0.6rem;
-  color: #0056b3;
-  font-weight: bold;
 }
 
 @media (hover: hover) {
@@ -176,12 +168,8 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
 
 @media (max-width: 768px) {
   .academic-list li {
-    padding: 0.15rem 0.5rem 0.5rem 1rem;
+    padding: 0.15rem 0.5rem 0.5rem 0.6rem;
     font-size: 0.95rem;
-  }
-
-  .academic-list li:before {
-    left: 0.35rem;
   }
 }
 
