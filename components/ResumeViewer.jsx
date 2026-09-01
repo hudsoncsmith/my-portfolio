@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-const TOOLBAR_OFFSET = 56; // px height of Google's viewer toolbar to crop out
-
 export default function ResumeViewer({ src, style }) {
   const [isSafari, setIsSafari] = useState(false);
 
@@ -19,29 +17,9 @@ export default function ResumeViewer({ src, style }) {
     return <embed src={src} type="application/pdf" style={style} />;
   }
 
-  // Chrome (and other non-Safari browsers): Chrome's native <embed>/<iframe>
-  // PDF rendering has proven unreliable here, so route through Google's
-  // hosted PDF viewer instead, which renders consistently. Its own toolbar
-  // is cropped out by clipping the wrapper and shifting the iframe up.
-  const absoluteUrl = typeof window !== 'undefined'
-    ? new URL(src, window.location.origin).toString()
-    : src;
-  const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absoluteUrl)}&embedded=true`;
-
-  return (
-    <div style={{ ...style, overflow: 'hidden', position: 'relative' }}>
-      <iframe
-        src={viewerUrl}
-        title="Resume"
-        style={{
-          position: 'absolute',
-          top: -TOOLBAR_OFFSET,
-          left: 0,
-          width: '100%',
-          height: `calc(100% + ${TOOLBAR_OFFSET}px)`,
-          border: 'none',
-        }}
-      />
-    </div>
-  );
+  // Chrome (and other non-Safari browsers): load the PDF directly in an
+  // iframe using Chrome's native PDF viewer, with its toolbar/side panel
+  // hidden via the standard #toolbar=0&navpanes=0 fragment params it
+  // honors natively - no third-party viewer or cropping hacks needed.
+  return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0`} title="Resume" style={style} />;
 }
