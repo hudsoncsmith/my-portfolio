@@ -1,0 +1,59 @@
+---
+title: Office Trash Detection Neural Network
+description: A personal computer vision project using YOLOv5 and the TACO dataset to detect trash left in office common areas.
+---
+
+import { HeroSection, CTAButton } from '../../components/StyledComponents';
+
+<HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Office Trash Detection Neural Network</h1>
+  <p style={{ fontSize: '1.1rem', color: '#1f3a5e', maxWidth: '800px' }}>
+    A personal side project applying object detection to a mundane but relatable problem: identifying trash left behind in shared office spaces.
+  </p>
+</HeroSection>
+
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem 4rem' }}>
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Project Overview</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Outside of client work, I built a small computer vision pipeline to detect trash items (cans, disposable food containers, tissues, paper bags, plastic bottles and cups) left in our office break room and common areas. The model is a YOLOv5 network trained on the TACO (Trash Annotations in Context) dataset, with additional data augmentation applied to TACO to improve robustness before validating detection performance on real photos taken around our office break room.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Key Contributions</h2>
+  <ul style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333', paddingLeft: '1.5rem' }}>
+    <li style={{ marginBottom: '1rem' }}><strong>Model Training:</strong> Trained a YOLOv5 object detector end-to-end on the TACO dataset, covering categories like food cans, disposable containers, tissues, paper bags, and plastic bottles.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Data Augmentation:</strong> Applied data augmentation to the TACO dataset to improve generalization before validation, given the limited size and narrow domain of the source imagery.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Real-World Validation:</strong> Ran and validated the trained model against real photos of our office break room and common areas, confirming it could localize and classify trash items with reasonable confidence outside of TACO's original domain.</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Deterrent Deployment:</strong> Connected detections to a Slack channel so the team knew trash left in shared spaces could be flagged automatically.</li>
+  </ul>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Limitations & What I Actually Learned</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The model's annotations are only as good as what TACO contains, which is mostly outdoor and beach litter rather than our office break room, so detection quality is capped by that domain mismatch. More importantly, whether people actually clean up after themselves has a lot more to do with how many trash cans are around, how the office itself is laid out, and people's own integrity and organizational culture than it does with whatever technology is watching. Those are not problems a neural network fixes.
+  </p>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    In practice, the better project was just picking up my own trash and leading by example, and gently reminding people in private when I saw them leave something behind rather than calling it out publicly. It's usually a mistake to try to fix a behavioral problem with technology. That said, simply letting people know the system could detect trash in our Slack channel turned out to be a pretty effective deterrent on its own.
+  </p>
+
+  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '2rem' }}>
+    <CTAButton href="https://github.com/hudsoncsmith/Hudson_Trashnet.git" target="_blank" rel="noopener noreferrer">View on GitHub</CTAButton>
+  </div>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Image Gallery</h2>
+  <div className="gallery-row">
+    <div className="gallery-item vertical">
+      <img src="/images/trashnet_1.png" alt="Detected food can and disposable food container on an office table" />
+    </div>
+    <div className="gallery-item vertical">
+      <img src="/images/trasshnet_2.png" alt="Detected tissues left on office furniture" />
+    </div>
+    <div className="gallery-item vertical">
+      <img src="/images/trashnet_3.png" alt="Detected paper bags and packaging on the floor" />
+    </div>
+    <div className="gallery-item vertical">
+      <img src="/images/trashnet_4.png" alt="Detected food cans, tissues, and a plastic bottle on a counter" />
+    </div>
+    <div className="gallery-item vertical">
+      <img src="/images/trashnet_5.png" alt="Detected disposable food containers and plastic cups on a table" />
+    </div>
+  </div>
+</div>

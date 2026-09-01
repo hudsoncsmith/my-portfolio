@@ -4,5 +4,6 @@
     "foundry": "Robotic Cutting",
     "weld-grinding-cutting": "Weld Grinding & Cutting",
     "plate-grinding-inspection": "Plate Grinding & Inspection",
-    "cold-spray-repair": "Cold Spray Repair"
+    "cold-spray-repair": "Cold Spray Repair",
+    "trashnet": "Trash Detection Neural Network"
 }
