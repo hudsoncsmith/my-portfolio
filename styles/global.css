@@ -119,16 +119,6 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
   color: #555;
 }
 
-.booklist-inline ul {
-  margin-left: 1.1rem;
-  color: #202a40;
-}
-
-.booklist-inline li {
-  margin-bottom: 0.75rem;
-  padding-left: 0.5rem;
-}
-
 .booklist-inline strong, .booklist-inline em {
   color: #003472;
 }
@@ -140,6 +130,59 @@ p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, span, div, li, ul
 
 .booklist-inline {
   padding: 0;
+}
+
+/* Book list styling - handles the extra nested <ul> MDX inserts when
+   parsing a markdown list passed as JSX children */
+.academic-list, .academic-list ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.academic-list li {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.15rem 0.5rem 0.5rem 1.25rem;
+  border-left: 3px solid #0056b3;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.academic-list li:before {
+  content: '\2022';
+  position: absolute;
+  left: 0.6rem;
+  color: #0056b3;
+  font-weight: bold;
+}
+
+@media (hover: hover) {
+  .academic-list li:hover {
+    border-left-color: #004494;
+    background-color: rgba(235, 245, 255, 0.5);
+  }
+}
+
+.academic-list em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .academic-list li {
+    padding: 0.15rem 0.5rem 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .academic-list li:before {
+    left: 0.35rem;
+  }
 }
 
 .skills-tabs {
