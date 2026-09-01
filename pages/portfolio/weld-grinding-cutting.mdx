@@ -3,7 +3,7 @@ title: Robotic Belt Grinding
 description: Process physics, toolpath directionality, and goal surface characterization for robotic belt grinding of large welds.
 ---
 
-import { HeroSection } from '../../components/StyledComponents';
+import { HeroSection, CTAButton } from '../../components/StyledComponents';
 
 <HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
   <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Robotic Belt Grinding</h1>
@@ -26,4 +26,8 @@ import { HeroSection } from '../../components/StyledComponents';
     <li style={{ marginBottom: '1rem' }}><strong>Process Physics & Removal Rate Characterization:</strong> Ran structured grinding experiments across force, RPM, and abrasive grit combinations to characterize material removal rate, heat buildup, and consumable wear, converging on a validated process recipe.</li>
     <li style={{ marginBottom: '1rem' }}><strong>Toolpath Planner Preconditions:</strong> Defined conservative per-pass and per-two-pass material removal limits, derived from the measured removal rate, as preconditions ensuring the planner always converges on the goal surface without overshoot.</li>
   </ul>
+
+  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '2rem' }}>
+    <CTAButton href="https://graymatter-robotics.com/grinding/" target="_blank" rel="noopener noreferrer">Learn More About GrayMatter's Grinding Solutions</CTAButton>
+  </div>
 </div>
