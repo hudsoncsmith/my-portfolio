@@ -1,8 +1,14 @@
 import '../styles/global.css'
 import '../styles/simple-loading.css'
+import Head from 'next/head'
 import CustomSidebar from '../components/CustomNavbar'
 import SimpleLoadingAnimation from '../components/SimpleLoadingAnimation'
 import { useState, useEffect } from 'react'
+
+const SITE_URL = 'https://www.hudsoncsmith.com'
+const SITE_TITLE = 'Hudson C. Smith'
+const SITE_DESCRIPTION = 'Robotics engineer building automation systems for aerospace, defense, and manufacturing.'
+const SITE_IMAGE = `${SITE_URL}/images/sanding_photo.jpeg`
 
 const HAS_LOADED_KEY = 'hasShownIntroLoader'
 
@@ -31,19 +37,37 @@ export default function MyApp({ Component, pageProps }) {
     setLoading(false)
   }
 
-  // Show nothing during server-side rendering to prevent hydration errors
-  if (!mounted) return null
-
   return (
     <>
-      {showIntro && loading && <SimpleLoadingAnimation onFinished={handleLoadingFinished} />}
+      <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <title>{SITE_TITLE}</title>
+        <meta name="description" content={SITE_DESCRIPTION} />
 
-      <div className={`page-transition ${loading ? '' : 'page-transition-visible'}`}>
-        <CustomSidebar />
-        <div className="main-content">
-          <Component {...pageProps} />
-        </div>
-      </div>
+        <meta property="og:title" content={SITE_TITLE} />
+        <meta property="og:description" content={SITE_DESCRIPTION} />
+        <meta property="og:image" content={SITE_IMAGE} />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={SITE_TITLE} />
+        <meta name="twitter:description" content={SITE_DESCRIPTION} />
+        <meta name="twitter:image" content={SITE_IMAGE} />
+      </Head>
+
+      {/* Show nothing else during server-side rendering to prevent hydration errors */}
+      {mounted && (
+        <>
+          {showIntro && loading && <SimpleLoadingAnimation onFinished={handleLoadingFinished} />}
+
+          <div className={`page-transition ${loading ? '' : 'page-transition-visible'}`}>
+            <CustomSidebar />
+            <div className="main-content">
+              <Component {...pageProps} />
+            </div>
+          </div>
+        </>
+      )}
     </>
   )
 }

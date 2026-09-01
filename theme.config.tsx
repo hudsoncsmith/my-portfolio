@@ -34,6 +34,17 @@ export default {
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       {/* Other meta tags, styles, and scripts can go here */}
       <title>Hudson C. Smith</title>
+
+      {/* Open Graph / link preview thumbnail */}
+      <meta property="og:title" content="Hudson C. Smith" />
+      <meta property="og:description" content="Robotics engineer building automation systems for aerospace, defense, and manufacturing." />
+      <meta property="og:image" content="https://www.hudsoncsmith.com/images/sanding_photo.jpeg" />
+      <meta property="og:url" content="https://www.hudsoncsmith.com" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Hudson C. Smith" />
+      <meta name="twitter:description" content="Robotics engineer building automation systems for aerospace, defense, and manufacturing." />
+      <meta name="twitter:image" content="https://www.hudsoncsmith.com/images/sanding_photo.jpeg" />
     </>
   ),
 
