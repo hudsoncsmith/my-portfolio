@@ -1,59 +1,89 @@
-# Thesis Summary: Estimation of Stopping Behavior for Industrial Robots
-
-import { CTAButton } from '../../components/StyledComponents';
-
-## Prediction of Stopping Behavior for Robot Safety
-
-<img src="/images/abb_VDI.png" alt="ABB VDI" style={{ display: 'block', maxWidth: '500px', width: '90%', height: 'auto', margin: '1rem auto' }} />
-
-ABB Corporate Research / TU Darmstadt / Virginia Tech - Published through VDI Mechatroniktagung 2024
-
-### Background & Motivation
-
-Safe deployment of industrial robots requires knowing exactly how far and how long a robot will travel after a stop command is issued. This stopping behavior, governed by joint positions, velocities, and the specific stop function used, must be characterized before a system goes live, and ideally predicted in real time for dynamic safety functions like speed-and-separation monitoring under ISO/TS 15066. Existing approaches relied on physical models or conservative worst-case estimates. This research explored whether a neural network could predict stopping behavior accurately enough to serve as one channel of a certified dual-channel safety function, alongside a physics-empirical model.
-
-### Experimental Design
-
-All experiments were conducted on an ABB IRB 1100 robot (4kg payload, 580mm reach) using a controlled stop function triggered via RAPID command. The primary focus was the three main axes, with joint positions and velocities systematically varied across their operating ranges. A stop event is defined by three phases: a reaction time during which the robot continues moving (~100ms), a braking ramp, and final standstill.
-
-<img src="/images/figure_thesis_experimental_design.png" alt="Experimental protocol for a single stop experiment, showing joint velocity vs. elapsed program time with each data collection step annotated" style={{ maxWidth: '650px', width: '100%', height: 'auto', margin: '1rem 0' }} />
-
-Each experiment followed a fixed, automated sequence: setting values and confirming the monitor was ready, moving to the start position, issuing the move command to the final point, detecting and recording data at the trigger point, triggering the stop command, determining deceleration, and recording data once the robot settled at the stop point, before resetting the motion planner and writing data to file for the next run.
-
-<img src="/images/braking_VDI.png" alt="Braking VDI" style={{ maxWidth: '500px', width: '100%', height: 'auto', margin: '1rem 0' }} />
-
-Two datasets were generated: a training and test set of 31,752 stop experiments across 10,584 unique joint configurations, and an independent validation set of 13,500 experiments at 4,500 configurations not used during training. An additional 1,050 reference experiments were run for detailed analysis of Axis 1 behavior. All data was collected automatically via a purpose-built RAPID program that executed each configuration, triggered the stop, and logged joint angles, velocities, reaction time, and braking ramp duration.
-
-### Neural Network Development
-
-The core of this research was developing a data-driven model capable of predicting stopping distances and times across the full joint state space. The network takes the 12-dimensional joint state [position, velocity] as input and outputs 8 values: final joint positions after stopping, reaction time, and braking ramp duration.
-
-The architecture uses two sequential sub-networks. The first maps the input state to final joint positions after the stop (6 outputs, hidden layers of 15–10–10 nodes). The second takes those predicted final positions along with the original input to predict reaction time and braking duration (2 outputs, hidden layers of 20–15–15 nodes). Stopping distances and times differ substantially in magnitude, variance, and physical units, which motivated this decoupled structure.
-
-<img src="/images/neural_net_structure.png" alt="Neural network architecture for single-joint stopping behavior prediction, showing the position sub-network (15-10-10) feeding predicted final positions into the time sub-network (20-15-15)" style={{ maxWidth: '700px', width: '100%', height: 'auto', margin: '1rem auto', display: 'block' }} />
-
-The network was implemented in PyTorch using a sigmoid activation function, linear layer types, and the ADAM optimizer. Separate learning rates were tuned for each sub-network: 10⁻⁴ for distance prediction and 10⁻² for time prediction, with batch sizes of 15 and 30 respectively. Training data was normalized to [−1, +1] and split 80/20 for training and testing. Convergence was assessed using MSE loss and observed after approximately 50 epochs for both distance and time sub-networks across all three axes.
-
-### Results
-
-On interpolation (configurations within the training domain), the network achieved:
-
-- Stopping distance RMSE: 0.90° (training and test), 0.75° (independent validation)
-- Stopping time RMSE: 13ms (training and test), 14ms (independent validation)
-
-The slight improvement on validation data is attributed to the validation set excluding stationary-axis configurations, which the network handles less precisely.
-
-Extrapolation performance degraded as expected for a data-driven model. When trained on a reduced position range and evaluated outside it, distance RMSE rose to 1.7° and time RMSE to 18ms. Velocity extrapolation was similarly limited, with distance RMSE reaching 2.7° and time RMSE 19ms at out-of-range speeds.
-
-Compared directly with the physics-empirical model on Axis 1, both approaches achieved mean absolute errors below 1° and 10ms within the training domain. At high velocities outside the training range, the physics-empirical model outperformed the neural network (2.7° vs. 3.3° MAE in distance; 10ms vs. 20ms in time), reinforcing the complementary nature of the two approaches for diverse redundancy.
-
-### Conclusion
-
-The research demonstrated that a neural network trained on real stop experiment data can predict robot stopping behavior with accuracy likely sufficient for implementation in a certified safety controller. Combined with the physics-empirical model as a second independent channel, this work lays the groundwork for a dual-channel online safety function capable of predicting stopping distances and times for any joint state, enabling tighter, more productive safety zones without sacrificing compliance with ISO 10218 and ISO/TS 15066.
-
+---
+title: Master Thesis
+description: Neural-network prediction of robot stopping behavior for safe collaborative operations, published through VDI Mechatroniktagung 2024.
 ---
 
-<div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem' }}>
-	<CTAButton href="https://hdl.handle.net/10919/117240" target="_blank" rel="noopener noreferrer">Thesis on Virginia Tech</CTAButton>
-	<CTAButton href="/images/Tagungsband-VDI-Mechatronik2024.pdf" target="_blank" rel="noopener noreferrer">VDI Mechatronik Document</CTAButton>
+import { HeroSection, CTAButton } from '../../components/StyledComponents';
+
+<HeroSection style={{ flexDirection: 'column', textAlign: 'left', padding: '3rem' }}>
+  <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(90deg, #0056b3, #007bff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Prediction of Stopping Behavior for Robot Safety</h1>
+  <p style={{ fontSize: '1.1rem', color: '#1f3a5e', maxWidth: '800px' }}>
+    ABB Corporate Research / TU Darmstadt / Virginia Tech — Published through VDI Mechatroniktagung 2024
+  </p>
+</HeroSection>
+
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem 4rem' }}>
+  <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+    <img src="/images/abb_VDI.png" alt="ABB VDI" style={{ width: '100%', display: 'block' }} />
+  </div>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Background & Motivation</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Safe deployment of industrial robots requires knowing exactly how far and how long a robot will travel after a stop command is issued. This stopping behavior, governed by joint positions, velocities, and the specific stop function used, must be characterized before a system goes live, and ideally predicted in real time for dynamic safety functions like speed-and-separation monitoring under ISO/TS 15066. Existing approaches relied on physical models or conservative worst-case estimates. This research explored whether a neural network could predict stopping behavior accurately enough to serve as one channel of a certified dual-channel safety function, alongside a physics-empirical model.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Experimental Design</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    All experiments were conducted on an ABB IRB 1100 robot (4kg payload, 580mm reach) using a controlled stop function triggered via RAPID command. The primary focus was the three main axes, with joint positions and velocities systematically varied across their operating ranges. A stop event is defined by three phases: a reaction time during which the robot continues moving (~100ms), a braking ramp, and final standstill.
+  </p>
+
+  <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+    <img src="/images/figure_thesis_experimental_design.png" alt="Experimental protocol for a single stop experiment, showing joint velocity vs. elapsed program time with each data collection step annotated" style={{ width: '100%', display: 'block' }} />
+  </div>
+
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Each experiment followed a fixed, automated sequence: setting values and confirming the monitor was ready, moving to the start position, issuing the move command to the final point, detecting and recording data at the trigger point, triggering the stop command, determining deceleration, and recording data once the robot settled at the stop point, before resetting the motion planner and writing data to file for the next run.
+  </p>
+
+  <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+    <img src="/images/braking_VDI.png" alt="Braking VDI" style={{ width: '100%', display: 'block' }} />
+  </div>
+
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Two datasets were generated: a training and test set of 31,752 stop experiments across 10,584 unique joint configurations, and an independent validation set of 13,500 experiments at 4,500 configurations not used during training. An additional 1,050 reference experiments were run for detailed analysis of Axis 1 behavior. All data was collected automatically via a purpose-built RAPID program that executed each configuration, triggered the stop, and logged joint angles, velocities, reaction time, and braking ramp duration.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Neural Network Development</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The core of this research was developing a data-driven model capable of predicting stopping distances and times across the full joint state space. The network takes the 12-dimensional joint state [position, velocity] as input and outputs 8 values: final joint positions after stopping, reaction time, and braking ramp duration.
+  </p>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The architecture uses two sequential sub-networks. The first maps the input state to final joint positions after the stop (6 outputs, hidden layers of 15–10–10 nodes). The second takes those predicted final positions along with the original input to predict reaction time and braking duration (2 outputs, hidden layers of 20–15–15 nodes). Stopping distances and times differ substantially in magnitude, variance, and physical units, which motivated this decoupled structure.
+  </p>
+
+  <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+    <img src="/images/neural_net_structure.png" alt="Neural network architecture for single-joint stopping behavior prediction, showing the position sub-network (15-10-10) feeding predicted final positions into the time sub-network (20-15-15)" style={{ width: '100%', display: 'block' }} />
+  </div>
+
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The network was implemented in PyTorch using a sigmoid activation function, linear layer types, and the ADAM optimizer. Separate learning rates were tuned for each sub-network: 10⁻⁴ for distance prediction and 10⁻² for time prediction, with batch sizes of 15 and 30 respectively. Training data was normalized to [−1, +1] and split 80/20 for training and testing. Convergence was assessed using MSE loss and observed after approximately 50 epochs for both distance and time sub-networks across all three axes.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Results</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem', color: '#333' }}>
+    On interpolation (configurations within the training domain), the network achieved:
+  </p>
+  <ul style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333', paddingLeft: '1.5rem' }}>
+    <li style={{ marginBottom: '1rem' }}><strong>Stopping distance RMSE:</strong> 0.90° (training and test), 0.75° (independent validation)</li>
+    <li style={{ marginBottom: '1rem' }}><strong>Stopping time RMSE:</strong> 13ms (training and test), 14ms (independent validation)</li>
+  </ul>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The slight improvement on validation data is attributed to the validation set excluding stationary-axis configurations, which the network handles less precisely.
+  </p>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Extrapolation performance degraded as expected for a data-driven model. When trained on a reduced position range and evaluated outside it, distance RMSE rose to 1.7° and time RMSE to 18ms. Velocity extrapolation was similarly limited, with distance RMSE reaching 2.7° and time RMSE 19ms at out-of-range speeds.
+  </p>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    Compared directly with the physics-empirical model on Axis 1, both approaches achieved mean absolute errors below 1° and 10ms within the training domain. At high velocities outside the training range, the physics-empirical model outperformed the neural network (2.7° vs. 3.3° MAE in distance; 10ms vs. 20ms in time), reinforcing the complementary nature of the two approaches for diverse redundancy.
+  </p>
+
+  <h2 style={{ fontSize: '1.8rem', color: '#0056b3', borderBottom: '2px solid #e0e0e0', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>Conclusion</h2>
+  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#333' }}>
+    The research demonstrated that a neural network trained on real stop experiment data can predict robot stopping behavior with accuracy likely sufficient for implementation in a certified safety controller. Combined with the physics-empirical model as a second independent channel, this work lays the groundwork for a dual-channel online safety function capable of predicting stopping distances and times for any joint state, enabling tighter, more productive safety zones without sacrificing compliance with ISO 10218 and ISO/TS 15066.
+  </p>
+
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'flex-start', marginBottom: '2rem' }}>
+    <CTAButton href="https://hdl.handle.net/10919/117240" target="_blank" rel="noopener noreferrer">Thesis on Virginia Tech</CTAButton>
+    <CTAButton href="/images/Tagungsband-VDI-Mechatronik2024.pdf" target="_blank" rel="noopener noreferrer">VDI Mechatronik Document</CTAButton>
+  </div>
 </div>
