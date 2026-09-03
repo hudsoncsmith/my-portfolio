@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Renders a PDF entirely via <canvas> using pdf.js, with no dependence on
-// the browser's own native PDF viewer. Used for Chrome (desktop and
-// Android), where inline PDF embedding via <embed>/<iframe> is unreliable -
-// this renders identically everywhere since it never touches a native
-// PDF plugin at all, and always scales pages to fit the container width.
+// the browser's own native PDF viewer - works identically everywhere,
+// as flat static page images (no scrolling/zooming viewer chrome).
+// Each page renders in its own bordered card so page breaks read as
+// intentional rather than as a stray gap from blank space at the end
+// of a page's own content.
 export default function PdfCanvasViewer({ src, style }) {
   const containerRef = useRef(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    let pdfDoc = null;
 
     async function render() {
       try {
@@ -19,7 +19,7 @@ export default function PdfCanvasViewer({ src, style }) {
         pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
         const loadingTask = pdfjsLib.getDocument(src);
-        pdfDoc = await loadingTask.promise;
+        const pdfDoc = await loadingTask.promise;
         if (cancelled || !containerRef.current) return;
 
         containerRef.current.innerHTML = '';
@@ -32,10 +32,16 @@ export default function PdfCanvasViewer({ src, style }) {
           const scale = containerWidth / unscaledViewport.width;
           const viewport = page.getViewport({ scale });
 
+          const card = document.createElement('div');
+          card.style.marginBottom = pageNum < pdfDoc.numPages ? '1.5rem' : '0';
+          card.style.borderRadius = '12px';
+          card.style.overflow = 'hidden';
+          card.style.border = '1px solid #e0e0e0';
+          card.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+
           const canvas = document.createElement('canvas');
           canvas.style.display = 'block';
           canvas.style.width = '100%';
-          canvas.style.marginBottom = pageNum < pdfDoc.numPages ? '1rem' : '0';
           const context = canvas.getContext('2d');
 
           // Render at device pixel ratio for crisp text on high-DPI screens.
@@ -45,7 +51,8 @@ export default function PdfCanvasViewer({ src, style }) {
           context.scale(dpr, dpr);
 
           if (cancelled || !containerRef.current) return;
-          containerRef.current.appendChild(canvas);
+          card.appendChild(canvas);
+          containerRef.current.appendChild(card);
           await page.render({ canvasContext: context, viewport }).promise;
         }
       } catch (e) {
